@@ -3,13 +3,11 @@
 <head>
 <meta name="565482b5318527edb53e82f35fd8b0444cb9e89c" content="565482b5318527edb53e82f35fd8b0444cb9e89c" />
 
-<!-- ============ SEO META TAGS (Optimized) ============ -->
 <title>TikFetch — Download TikTok Videos Without Watermark (HD & MP3)</title>
-<meta name="description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required. Fast and easy TikTok to MP4 converter." />
+<meta name="description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required." />
 <meta name="keywords" content="TikTok downloader, TikTok video without watermark, TikTok to MP3, TikTok to MP4, download TikTok videos" />
 <link rel="canonical" href="https://tikfetch.example.com/" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="TikFetch — Download TikTok Videos Without Watermark (HD & MP3)" />
 <meta property="og:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required." />
@@ -21,13 +19,11 @@
 <meta property="og:image:alt" content="TikFetch - TikTok Downloader" />
 <meta property="og:locale" content="en_US" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="TikFetch — Download TikTok Videos Without Watermark" />
 <meta name="twitter:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark." />
 <meta name="twitter:image" content="https://tikfetch.example.com/og-cover.jpg" />
 
-<!-- JSON-LD structured data with FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -45,15 +41,12 @@
 }
 </script>
 
-<!-- ============ GOOGLE FONTS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
 
-<!-- ============ TAILWIND CSS (CDN) ============ -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- ============ CUSTOM CSS / KEYFRAMES ============ -->
 <style>
   :root {
     --font-display: 'Space Grotesk', sans-serif;
@@ -106,7 +99,6 @@
   .font-\[var\(--font-ar\)\] { font-family: var(--font-ar); }
   .font-\[var\(--font-en\)\] { font-family: var(--font-en); }
   
-  /* FAQ Accordion Styles */
   .faq-item {
     border: 1px solid rgba(139, 92, 246, 0.15);
     border-radius: 12px;
@@ -137,17 +129,13 @@
 <body>
 <div id="root"></div>
 
-<!-- ============ REACT + REACTDOM ============ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
-
-<!-- Babel standalone -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js" crossorigin></script>
 
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
-// ---- Icons ----
 function makeIcon(paths) {
   return function Icon({ size = 24, className = "", strokeWidth = 2, style }) {
     return (
@@ -238,62 +226,22 @@ const STRINGS = {
       privacy: { title: "Privacy Policy", body: ["Placeholder copy for review purposes only."] },
       dmca: { title: "DMCA & Takedown Policy", body: ["Placeholder copy for review purposes only."] },
     },
-    // FAQ Section
     faqTitle: "Frequently Asked Questions",
     faqSubtitle: "Everything you need to know about downloading TikTok videos",
     faq: [
-      {
-        q: "How do I download TikTok videos without watermark?",
-        a: "Simply copy the TikTok video link, paste it into TikFetch, and click 'Fetch video'. Our tool automatically removes the TikTok watermark and lets you download the video in HD quality. It works with all public TikTok videos."
-      },
-      {
-        q: "Is TikFetch free to use?",
-        a: "Yes, TikFetch is completely free. You can download unlimited TikTok videos, extract MP3 audio, and save cover images without any cost. No signup or registration required."
-      },
-      {
-        q: "How can I save TikTok audio as MP3?",
-        a: "After pasting the TikTok link and fetching the video, click the 'Audio · MP3' button. TikFetch will extract the high-quality audio from the video and download it as an MP3 file that works on any device."
-      },
-      {
-        q: "Does TikFetch work with short TikTok links (vt.tiktok.com)?",
-        a: "Yes! TikFetch supports all TikTok URL formats including short links (vt.tiktok.com), mobile links (vm.tiktok.com), and full URLs (tiktok.com/@user/video/...). Just paste any TikTok link and we'll handle the rest."
-      },
-      {
-        q: "Can I download TikTok videos on my phone?",
-        a: "Absolutely. TikFetch works on all devices — iPhone, Android, tablets, and desktop computers. No app installation needed. Just open the website in your browser and start downloading."
-      },
-      {
-        q: "What video quality can I download?",
-        a: "TikFetch offers both HD (high definition) and SD (standard definition) video downloads. HD quality preserves the original resolution of the TikTok video, while SD provides a smaller file size for faster downloads."
-      },
-      {
-        q: "Is it safe to use TikTok downloaders?",
-        a: "TikFetch is safe and secure. We don't store your videos or personal data. All processing happens in real-time, and we don't require any login or personal information. Your privacy is protected."
-      },
-      {
-        q: "Why can't I download some TikTok videos?",
-        a: "TikFetch can only download public TikTok videos. If a video is private, deleted, or restricted by the creator's privacy settings, it cannot be downloaded. Make sure the video is publicly accessible."
-      },
-      {
-        q: "How do I download TikTok cover images?",
-        a: "After fetching a TikTok video, click the 'Cover · JPG' button to download the video's thumbnail image. This is useful for saving video previews or creating content collections."
-      },
-      {
-        q: "Do I need to install any software or app?",
-        a: "No installation required! TikFetch is a web-based tool that works directly in your browser. There's no need to download any software, apps, or browser extensions. Just visit the website and start downloading."
-      },
-      {
-        q: "Can I download multiple TikTok videos at once?",
-        a: "Currently, TikFetch processes one video at a time. Simply paste a link, download the video, then paste the next link. The process is fast, so you can download multiple videos in quick succession."
-      },
-      {
-        q: "Does TikFetch work with TikTok Live videos?",
-        a: "TikFetch is designed for regular TikTok videos. Live stream videos may not be available for download as they are often temporary content. For best results, use links to published TikTok videos."
-      },
-      {
-        q: "What's the difference between HD and SD downloads?",
-        a: "HD (High Definition) downloads provide the best video quality with higher resolution and larger file sizes. SD (Standard Definition) offers good quality with smaller file sizes, perfect for saving storage space or faster downloads on slower connections."
-      }
+      { q: "How do I download TikTok videos without watermark?", a: "Simply copy the TikTok video link, paste it into TikFetch, and click 'Fetch video'. Our tool automatically removes the TikTok watermark and lets you download the video in HD quality. It works with all public TikTok videos." },
+      { q: "Is TikFetch free to use?", a: "Yes, TikFetch is completely free. You can download unlimited TikTok videos, extract MP3 audio, and save cover images without any cost. No signup or registration required." },
+      { q: "How can I save TikTok audio as MP3?", a: "After pasting the TikTok link and fetching the video, click the 'Audio · MP3' button. TikFetch will extract the high-quality audio from the video and download it as an MP3 file that works on any device." },
+      { q: "Does TikFetch work with short TikTok links (vt.tiktok.com)?", a: "Yes! TikFetch supports all TikTok URL formats including short links (vt.tiktok.com), mobile links (vm.tiktok.com), and full URLs (tiktok.com/@user/video/...). Just paste any TikTok link and we'll handle the rest." },
+      { q: "Can I download TikTok videos on my phone?", a: "Absolutely. TikFetch works on all devices — iPhone, Android, tablets, and desktop computers. No app installation needed. Just open the website in your browser and start downloading." },
+      { q: "What video quality can I download?", a: "TikFetch offers both HD (high definition) and SD (standard definition) video downloads. HD quality preserves the original resolution of the TikTok video, while SD provides a smaller file size for faster downloads." },
+      { q: "Is it safe to use TikTok downloaders?", a: "TikFetch is safe and secure. We don't store your videos or personal data. All processing happens in real-time, and we don't require any login or personal information. Your privacy is protected." },
+      { q: "Why can't I download some TikTok videos?", a: "TikFetch can only download public TikTok videos. If a video is private, deleted, or restricted by the creator's privacy settings, it cannot be downloaded. Make sure the video is publicly accessible." },
+      { q: "How do I download TikTok cover images?", a: "After fetching a TikTok video, click the 'Cover · JPG' button to download the video's thumbnail image. This is useful for saving video previews or creating content collections." },
+      { q: "Do I need to install any software or app?", a: "No installation required! TikFetch is a web-based tool that works directly in your browser. There's no need to download any software, apps, or browser extensions. Just visit the website and start downloading." },
+      { q: "Can I download multiple TikTok videos at once?", a: "Currently, TikFetch processes one video at a time. Simply paste a link, download the video, then paste the next link. The process is fast, so you can download multiple videos in quick succession." },
+      { q: "Does TikFetch work with TikTok Live videos?", a: "TikFetch is designed for regular TikTok videos. Live stream videos may not be available for download as they are often temporary content. For best results, use links to published TikTok videos." },
+      { q: "What's the difference between HD and SD downloads?", a: "HD (High Definition) downloads provide the best video quality with higher resolution and larger file sizes. SD (Standard Definition) offers good quality with smaller file sizes, perfect for saving storage space or faster downloads on slower connections." }
     ]
   },
   ar: {
@@ -352,62 +300,22 @@ const STRINGS = {
       privacy: { title: "سياسة الخصوصية", body: ["نص مبدئي لأغراض المراجعة فقط."] },
       dmca: { title: "سياسة DMCA وطلبات الإزالة", body: ["نص مبدئي لأغراض المراجعة فقط."] },
     },
-    // FAQ Section
     faqTitle: "الأسئلة الشائعة",
     faqSubtitle: "كل ما تحتاج معرفته عن تنزيل فيديوهات تيك توك",
     faq: [
-      {
-        q: "كيف أحمل فيديوهات تيك توك بدون علامة مائية؟",
-        a: "انسخ رابط فيديو تيك توك، الصقه في TikFetch، واضغط على 'جلب الفيديو'. أداتنا تزيل علامة تيك توك المائية تلقائياً وتتيح لك تنزيل الفيديو بجودة عالية. يعمل مع جميع فيديوهات تيك توك العامة."
-      },
-      {
-        q: "هل موقع TikFetch مجاني؟",
-        a: "نعم، TikFetch مجاني تماماً. يمكنك تنزيل عدد غير محدود من فيديوهات تيك توك، واستخراج الصوت بصيغة MP3، وحفظ صور الغلاف بدون أي تكلفة. لا حاجة للتسجيل أو إنشاء حساب."
-      },
-      {
-        q: "كيف أحفظ صوت تيك توك كملف MP3؟",
-        a: "بعد لصق رابط تيك توك وجلب الفيديو، اضغط على زر 'صوت · MP3'. سيقوم TikFetch باستخراج الصوت عالي الجودة من الفيديو وتنزيله كملف MP3 يعمل على أي جهاز."
-      },
-      {
-        q: "هل يعمل TikFetch مع روابط تيك توك المختصرة (vt.tiktok.com)؟",
-        a: "نعم! TikFetch يدعم جميع صيغ روابط تيك توك بما في ذلك الروابط المختصرة (vt.tiktok.com)، وروابط الموبايل (vm.tiktok.com)، والروابط الكاملة (tiktok.com/@user/video/...). فقط الصق أي رابط وسنتولى الباقي."
-      },
-      {
-        q: "هل يمكنني تنزيل فيديوهات تيك توك على هاتفي؟",
-        a: "بالتأكيد. TikFetch يعمل على جميع الأجهزة — آيفون، أندرويد، أجهزة لوحية، وكمبيوترات. لا حاجة لتثبيت أي تطبيق. فقط افتح الموقع في متصفحك وابدأ التنزيل."
-      },
-      {
-        q: "ما جودة الفيديو التي يمكنني تنزيلها؟",
-        a: "يقدم TikFetch تنزيلات بجودة عالية (HD) وجودة قياسية (SD). الجودة العالية تحافظ على الدقة الأصلية لفيديو تيك توك، بينما الجودة القياسية توفر حجم ملف أصغر لتنزيلات أسرع."
-      },
-      {
-        q: "هل استخدام أدوات تنزيل تيك توك آمن؟",
-        a: "TikFetch آمن ومأمون. لا نخزن فيديوهاتك أو بياناتك الشخصية. جميع المعالجة تتم في الوقت الفعلي، ولا نطلب أي تسجيل دخول أو معلومات شخصية. خصوصيتك محمية."
-      },
-      {
-        q: "لماذا لا أستطيع تنزيل بعض فيديوهات تيك توك؟",
-        a: "يمكن لـ TikFetch تنزيل فيديوهات تيك توك العامة فقط. إذا كان الفيديو خاصاً أو محذوفاً أو مقيداً بإعدادات الخصوصية، فلا يمكن تنزيله. تأكد من أن الفيديو متاح للعامة."
-      },
-      {
-        q: "كيف أنزل صورة الغلاف لفيديو تيك توك؟",
-        a: "بعد جلب فيديو تيك توك، اضغط على زر 'الغلاف · JPG' لتنزيل الصورة المصغرة للفيديو. هذا مفيد لحفظ معاينات الفيديو أو إنشاء مجموعات محتوى."
-      },
-      {
-        q: "هل أحتاج لتثبيت أي برنامج أو تطبيق؟",
-        a: "لا حاجة للتثبيت! TikFetch أداة تعمل عبر الويب مباشرة في متصفحك. لا حاجة لتحميل أي برامج أو تطبيقات أو إضافات للمتصفح. فقط زر الموقع وابدأ التنزيل."
-      },
-      {
-        q: "هل يمكنني تنزيل عدة فيديوهات تيك توك دفعة واحدة؟",
-        a: "حالياً، TikFetch يعالج فيديو واحد في كل مرة. فقط الصق رابطاً، نزّل الفيديو، ثم الصق الرابط التالي. العملية سريعة، لذا يمكنك تنزيل عدة فيديوهات متتالية بسرعة."
-      },
-      {
-        q: "هل يعمل TikFetch مع فيديوهات البث المباشر على تيك توك؟",
-        a: "TikFetch مصمم لفيديوهات تيك توك العادية. فيديوهات البث المباشر قد لا تكون متاحة للتنزيل لأنها محتوى مؤقت غالباً. للحصول على أفضل النتائج، استخدم روابط فيديوهات تيك توك المنشورة."
-      },
-      {
-        q: "ما الفرق بين التنزيل بجودة HD و SD؟",
-        a: "التنزيل بجودة عالية (HD) يوفر أفضل جودة فيديو بدقة أعلى وأحجام ملفات أكبر. الجودة القياسية (SD) توفر جودة جيدة بأحجام ملفات أصغر، مثالية لتوفير مساحة التخزين أو التنزيلات الأسرع على الاتصالات البطيئة."
-      }
+      { q: "كيف أحمل فيديوهات تيك توك بدون علامة مائية؟", a: "انسخ رابط فيديو تيك توك، الصقه في TikFetch، واضغط على 'جلب الفيديو'. أداتنا تزيل علامة تيك توك المائية تلقائياً وتتيح لك تنزيل الفيديو بجودة عالية. يعمل مع جميع فيديوهات تيك توك العامة." },
+      { q: "هل موقع TikFetch مجاني؟", a: "نعم، TikFetch مجاني تماماً. يمكنك تنزيل عدد غير محدود من فيديوهات تيك توك، واستخراج الصوت بصيغة MP3، وحفظ صور الغلاف بدون أي تكلفة. لا حاجة للتسجيل أو إنشاء حساب." },
+      { q: "كيف أحفظ صوت تيك توك كملف MP3؟", a: "بعد لصق رابط تيك توك وجلب الفيديو، اضغط على زر 'صوت · MP3'. سيقوم TikFetch باستخراج الصوت عالي الجودة من الفيديو وتنزيله كملف MP3 يعمل على أي جهاز." },
+      { q: "هل يعمل TikFetch مع روابط تيك توك المختصرة (vt.tiktok.com)؟", a: "نعم! TikFetch يدعم جميع صيغ روابط تيك توك بما في ذلك الروابط المختصرة (vt.tiktok.com)، وروابط الموبايل (vm.tiktok.com)، والروابط الكاملة (tiktok.com/@user/video/...). فقط الصق أي رابط وسنتولى الباقي." },
+      { q: "هل يمكنني تنزيل فيديوهات تيك توك على هاتفي؟", a: "بالتأكيد. TikFetch يعمل على جميع الأجهزة — آيفون، أندرويد، أجهزة لوحية، وكمبيوترات. لا حاجة لتثبيت أي تطبيق. فقط افتح الموقع في متصفحك وابدأ التنزيل." },
+      { q: "ما جودة الفيديو التي يمكنني تنزيلها؟", a: "يقدم TikFetch تنزيلات بجودة عالية (HD) وجودة قياسية (SD). الجودة العالية تحافظ على الدقة الأصلية لفيديو تيك توك، بينما الجودة القياسية توفر حجم ملف أصغر لتنزيلات أسرع." },
+      { q: "هل استخدام أدوات تنزيل تيك توك آمن؟", a: "TikFetch آمن ومأمون. لا نخزن فيديوهاتك أو بياناتك الشخصية. جميع المعالجة تتم في الوقت الفعلي، ولا نطلب أي تسجيل دخول أو معلومات شخصية. خصوصيتك محمية." },
+      { q: "لماذا لا أستطيع تنزيل بعض فيديوهات تيك توك؟", a: "يمكن لـ TikFetch تنزيل فيديوهات تيك توك العامة فقط. إذا كان الفيديو خاصاً أو محذوفاً أو مقيداً بإعدادات الخصوصية، فلا يمكن تنزيله. تأكد من أن الفيديو متاح للعامة." },
+      { q: "كيف أنزل صورة الغلاف لفيديو تيك توك؟", a: "بعد جلب فيديو تيك توك، اضغط على زر 'الغلاف · JPG' لتنزيل الصورة المصغرة للفيديو. هذا مفيد لحفظ معاينات الفيديو أو إنشاء مجموعات محتوى." },
+      { q: "هل أحتاج لتثبيت أي برنامج أو تطبيق؟", a: "لا حاجة للتثبيت! TikFetch أداة تعمل عبر الويب مباشرة في متصفحك. لا حاجة لتحميل أي برامج أو تطبيقات أو إضافات للمتصفح. فقط زر الموقع وابدأ التنزيل." },
+      { q: "هل يمكنني تنزيل عدة فيديوهات تيك توك دفعة واحدة؟", a: "حالياً، TikFetch يعالج فيديو واحد في كل مرة. فقط الصق رابطاً، نزّل الفيديو، ثم الصق الرابط التالي. العملية سريعة، لذا يمكنك تنزيل عدة فيديوهات متتالية بسرعة." },
+      { q: "هل يعمل TikFetch مع فيديوهات البث المباشر على تيك توك؟", a: "TikFetch مصمم لفيديوهات تيك توك العادية. فيديوهات البث المباشر قد لا تكون متاحة للتنزيل لأنها محتوى مؤقت غالباً. للحصول على أفضل النتائج، استخدم روابط فيديوهات تيك توك المنشورة." },
+      { q: "ما الفرق بين التنزيل بجودة HD و SD؟", a: "التنزيل بجودة عالية (HD) يوفر أفضل جودة فيديو بدقة أعلى وأحجام ملفات أكبر. الجودة القياسية (SD) توفر جودة جيدة بأحجام ملفات أصغر، مثالية لتوفير مساحة التخزين أو التنزيلات الأسرع على الاتصالات البطيئة." }
     ]
   },
 };
@@ -646,7 +554,6 @@ function PreviewModal({ onClose, labels }) {
   );
 }
 
-// ✅ FAQ Component with Accordion
 function FAQSection({ faq, title, subtitle }) {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -706,7 +613,12 @@ function TikFetchApp() {
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
   
-  const isValidTikTokUrl = (value) => /tiktok\.com/i.test(value.trim());
+  // ✅ FIXED: Simple and reliable URL validation
+  const isValidTikTokUrl = (value) => {
+    if (!value || typeof value !== 'string') return false;
+    const trimmed = value.trim().toLowerCase();
+    return trimmed.includes('tiktok.com');
+  };
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -731,7 +643,7 @@ function TikFetchApp() {
         const status = await navigator.permissions.query({ name: "clipboard-read" });
         if (status.state !== "granted" || cancelled) return;
         const text = await navigator.clipboard.readText();
-        if (!cancelled && text && /tiktok\.com/i.test(text)) setUrl(text.trim());
+        if (!cancelled && text && isValidTikTokUrl(text)) setUrl(text.trim());
       } catch {}
     })();
     return () => { cancelled = true; };
@@ -761,7 +673,15 @@ function TikFetchApp() {
       setView("error");
       return;
     }
-    if (!isValidTikTokUrl(trimmed)) {
+
+    // ✅ FIXED: Normalize URL
+    let targetUrl = trimmed;
+    if (!/^https?:\/\//i.test(targetUrl)) {
+      targetUrl = 'https://' + targetUrl;
+    }
+
+    // ✅ FIXED: Validate with simple includes()
+    if (!isValidTikTokUrl(targetUrl)) {
       setErrorKind("invalid");
       sound.error();
       setView("error");
@@ -779,7 +699,7 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(trimmed)}`;
+      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(targetUrl)}`;
       const options = {
         method: 'GET',
         headers: {
@@ -796,7 +716,7 @@ function TikFetchApp() {
 
       if (data && (data.video || data.video_url_no_watermark || data.data)) {
         setVideoData(data);
-        saveToHistory(trimmed);
+        saveToHistory(targetUrl);
         setView("result");
         sound.success();
       } else {
@@ -989,30 +909,10 @@ function TikFetchApp() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 px-4 pb-2 sm:grid-cols-4">
-                  <DownloadButton
-                    icon={Download}
-                    label={t.dlVideoHD}
-                    tone="primary"
-                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-hd.mp4")}
-                  />
-                  <DownloadButton
-                    icon={Download}
-                    label={t.dlVideoSD}
-                    tone="secondary"
-                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-sd.mp4")} 
-                  />
-                  <DownloadButton
-                    icon={Music2}
-                    label={t.dlAudio}
-                    tone="secondary"
-                    onClick={() => handleRealDownload(audioUrl, "tiktok-audio.mp3")}
-                  />
-                  <DownloadButton
-                    icon={ImageIcon}
-                    label={t.dlCover}
-                    tone="secondary"
-                    onClick={() => handleRealDownload(coverUrl, "tiktok-cover.jpg")}
-                  />
+                  <DownloadButton icon={Download} label={t.dlVideoHD} tone="primary" onClick={() => handleRealDownload(videoUrl, "tiktok-video-hd.mp4")} />
+                  <DownloadButton icon={Download} label={t.dlVideoSD} tone="secondary" onClick={() => handleRealDownload(videoUrl, "tiktok-video-sd.mp4")} />
+                  <DownloadButton icon={Music2} label={t.dlAudio} tone="secondary" onClick={() => handleRealDownload(audioUrl, "tiktok-audio.mp3")} />
+                  <DownloadButton icon={ImageIcon} label={t.dlCover} tone="secondary" onClick={() => handleRealDownload(coverUrl, "tiktok-cover.jpg")} />
                 </div>
 
                 <div className="px-4 pb-4">
@@ -1035,7 +935,6 @@ function TikFetchApp() {
               </div>
             )}
 
-            {/* ✅ FAQ Section */}
             <FAQSection faq={t.faq} title={t.faqTitle} subtitle={t.faqSubtitle} />
 
             <div className="mt-8"><AdSlot label={t.bottomBanner} size="300×250" /></div>
