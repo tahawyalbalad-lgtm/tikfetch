@@ -1,111 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta name="565482b5318527edb53e82f35fd8b0444cb9e89c" content="565482b5318527edb53e82f35fd8b0444cb9e89c" />
-
-<!-- ============ SEO META TAGS ============ -->
 <title>TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)</title>
 <meta name="description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
 <meta name="keywords" content="TikTok downloader, no watermark, HD video saver, MP3 converter, tiktok to mp4, tiktok to mp3" />
-<link rel="canonical" href="https://tikfetch.example.com/" />
-<link rel="alternate" hreflang="en" href="https://tikfetch.example.com/en" />
-<link rel="alternate" hreflang="ar" href="https://tikfetch.example.com/ar" />
-<link rel="alternate" hreflang="x-default" href="https://tikfetch.example.com/" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)" />
-<meta property="og:description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
-<meta property="og:url" content="https://tikfetch.example.com" />
-<meta property="og:site_name" content="TikFetch" />
-<meta property="og:image" content="https://tikfetch.example.com/og-cover.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="TikFetch" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)" />
-<meta name="twitter:description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
-<meta name="twitter:image" content="https://tikfetch.example.com/og-cover.jpg" />
-
-<!-- JSON-LD structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "TikFetch",
-  "url": "https://tikfetch.example.com",
-  "description": "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
-  "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
-
-<!-- ============ GOOGLE FONTS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
 
-<!-- ============ TAILWIND CSS (CDN) ============ -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- ============ CUSTOM CSS / KEYFRAMES ============ -->
 <style>
   :root {
     --font-display: 'Space Grotesk', sans-serif;
     --font-en: 'Inter', ui-sans-serif, system-ui;
     --font-ar: 'Noto Kufi Arabic', Tahoma, ui-sans-serif;
   }
-
   html, body {
-    padding: 0;
-    margin: 0;
+    padding: 0; margin: 0;
     background: linear-gradient(160deg, #0b0813 0%, #120d21 100%);
-    color: #ffffff;
-    font-family: var(--font-en);
-    min-height: 100%;
+    color: #ffffff; font-family: var(--font-en); min-height: 100%;
   }
-
-  html[dir="rtl"], html[dir="rtl"] body {
-    font-family: var(--font-ar);
-  }
-
+  html[dir="rtl"], html[dir="rtl"] body { font-family: var(--font-ar); }
   .font-display { font-family: var(--font-display); }
-
   .bg-noise {
     background-image:
       radial-gradient(circle at 15% -5%, rgba(139, 92, 246, 0.2), transparent 45%),
       radial-gradient(circle at 90% 10%, rgba(168, 85, 247, 0.14), transparent 40%),
       radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.08), transparent 50%);
   }
-
   .glow-focus:focus-within {
     border-color: rgba(168, 85, 247, 0.7);
     box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15), 0 0 24px -4px rgba(168, 85, 247, 0.5);
   }
-
   @keyframes pulseFrame {
     0%, 100% { transform: scaleY(1); background-color: rgba(139, 92, 246, 0.15); }
     50% { transform: scaleY(2.4); background-color: rgba(168, 85, 247, 1); box-shadow: 0 0 10px rgba(168, 85, 247, 0.8); }
   }
-
-  @keyframes spherePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-  }
-
-  @keyframes sphereHalo {
-    0%, 100% { opacity: 0.45; transform: scale(0.9); }
-    50% { opacity: 0.85; transform: scale(1.15); }
-  }
-
+  @keyframes spherePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  @keyframes sphereHalo { 0%, 100% { opacity: 0.45; transform: scale(0.9); } 50% { opacity: 0.85; transform: scale(1.15); } }
   .font-\[var\(--font-ar\)\] { font-family: var(--font-ar); }
   .font-\[var\(--font-en\)\] { font-family: var(--font-en); }
 </style>
@@ -113,360 +47,189 @@
 <body>
 <div id="root"></div>
 
-<!-- ============ REACT + REACTDOM (classic UMD builds, no ES modules / import maps) ============ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
-
-<!-- Babel standalone: transpiles JSX in the classic script below -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js" crossorigin></script>
 
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
+/* =========================================================
+   BACKEND CONFIG
+   The RapidAPI key now lives only on the backend server (.env),
+   never in this client-side file. This page calls YOUR backend,
+   and the backend calls RapidAPI on the server side.
+
+   Change BACKEND_BASE_URL to wherever you deploy server.js
+   (e.g. "http://localhost:3001" while testing locally, or
+   "https://your-backend-domain.com" once it's deployed).
+   ========================================================= */
+const BACKEND_BASE_URL = "http://localhost:3001";
+
+async function fetchTikTokData(tiktokUrl) {
+  const endpoint = `${BACKEND_BASE_URL}/api/tiktok?url=${encodeURIComponent(tiktokUrl)}`;
+  const res = await fetch(endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!res.ok) throw new Error(`API error ${res.status}`);
+  const data = await res.json();
+
+  // Different RapidAPI TikTok endpoints shape their JSON differently.
+  // Normalize a handful of the common field names into one flat object.
+  const d = data.data || data.result || data;
+  const videoHD =
+    d.hdplay || d.hd_play || d.play_no_watermark || d.nowatermark || d.video_hd || d.hdVideo || null;
+  const videoSD = d.play || d.video || d.wmplay || d.sd_video || null;
+  const audio = d.music || d.audio || d.music_url || null;
+  const cover = d.cover || d.origin_cover || d.thumbnail || null;
+  const title = d.title || d.desc || d.caption || "";
+  const author = (d.author && (d.author.nickname || d.author.unique_id)) || d.author_name || "";
+  const duration = d.duration || d.video_duration || null;
+
+  return { videoHD, videoSD, audio, cover, title, author, duration, raw: data };
+}
+
 // ---- Minimal inline icon set (no external icon library needed) ----
-// Lucide-style: 24x24 viewBox, stroke-based, currentColor.
 function makeIcon(paths) {
   return function Icon({ size = 24, className = "", strokeWidth = 2, style }) {
     return (
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-        style={style}
-      >
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
         {paths}
       </svg>
     );
   };
 }
 
-const Clipboard = makeIcon(
-  <>
-    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-  </>
-);
-const Link2 = makeIcon(
-  <>
-    <path d="M9 17H7A5 5 0 0 1 7 7h2" />
-    <path d="M15 7h2a5 5 0 1 1 0 10h-2" />
-    <line x1="8" y1="12" x2="16" y2="12" />
-  </>
-);
-const Download = makeIcon(
-  <>
-    <path d="M12 3v12" />
-    <path d="m7 10 5 5 5-5" />
-    <path d="M5 21h14" />
-  </>
-);
-const Music2 = makeIcon(
-  <>
-    <circle cx="8" cy="18" r="3" />
-    <circle cx="18" cy="16" r="3" />
-    <path d="M11 18V4l10-2v12" />
-  </>
-);
-const ImageIcon = makeIcon(
-  <>
-    <rect x="3" y="3" width="18" height="18" rx="2" />
-    <circle cx="9" cy="9" r="2" />
-    <path d="m21 15-5-5L5 21" />
-  </>
-);
-const AlertTriangle = makeIcon(
-  <>
-    <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-    <path d="M12 9v4" />
-    <path d="M12 17h.01" />
-  </>
-);
+const Clipboard = makeIcon(<><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></>);
+const Link2 = makeIcon(<><path d="M9 17H7A5 5 0 0 1 7 7h2" /><path d="M15 7h2a5 5 0 1 1 0 10h-2" /><line x1="8" y1="12" x2="16" y2="12" /></>);
+const Download = makeIcon(<><path d="M12 3v12" /><path d="m7 10 5 5 5-5" /><path d="M5 21h14" /></>);
+const Music2 = makeIcon(<><circle cx="8" cy="18" r="3" /><circle cx="18" cy="16" r="3" /><path d="M11 18V4l10-2v12" /></>);
+const ImageIcon = makeIcon(<><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-5-5L5 21" /></>);
+const AlertTriangle = makeIcon(<><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /><path d="M12 9v4" /><path d="M12 17h.01" /></>);
 const Loader2 = makeIcon(<path d="M21 12a9 9 0 1 1-6.219-8.56" />);
-const Globe = makeIcon(
-  <>
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-    <path d="M2 12h20" />
-  </>
-);
+const Globe = makeIcon(<><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></>);
 const Play = makeIcon(<polygon points="6 3 20 12 6 21 6 3" />);
-const User = makeIcon(
-  <>
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </>
-);
-const Clock = makeIcon(
-  <>
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </>
-);
-const X = makeIcon(
-  <>
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </>
-);
-const ShieldCheck = makeIcon(
-  <>
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-    <path d="m9 12 2 2 4-4" />
-  </>
-);
-const TrendingUp = makeIcon(
-  <>
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </>
-);
-const Share2 = makeIcon(
-  <>
-    <circle cx="18" cy="5" r="3" />
-    <circle cx="6" cy="12" r="3" />
-    <circle cx="18" cy="19" r="3" />
-    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-  </>
-);
-const HistoryIcon = makeIcon(
-  <>
-    <path d="M3 12a9 9 0 1 0 2.64-6.36L3 8" />
-    <path d="M3 3v5h5" />
-    <path d="M12 7v5l4 2" />
-  </>
-);
-const Trash2 = makeIcon(
-  <>
-    <polyline points="3 6 5 6 21 6" />
-    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-    <line x1="10" y1="11" x2="10" y2="17" />
-    <line x1="14" y1="11" x2="14" y2="17" />
-  </>
-);
-const Eye = makeIcon(
-  <>
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" />
-    <circle cx="12" cy="12" r="3" />
-  </>
-);
-const Volume2 = makeIcon(
-  <>
-    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-  </>
-);
-const VolumeX = makeIcon(
-  <>
-    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-    <line x1="23" y1="9" x2="17" y2="15" />
-    <line x1="17" y1="9" x2="23" y2="15" />
-  </>
-);
-
-/**
- * TikFetch — client-side app UI (backend-agnostic)
- * ------------------------------------------------
- * Bundled as a single standalone HTML file: Tailwind (CDN), Google Fonts,
- * React + ReactDOM (CDN UMD builds) + Babel Standalone (in-browser JSX
- * transform), with hand-written inline SVG icons — no build step, no
- * ES modules/import maps, no external icon library required.
- *
- * Design tokens — "Midnight Violet"
- * Color:   bg gradient #0b0813 → #120d21
- *          surface #1d1735 @ ~70% opacity, border 1px rgba(139,92,246,0.15)
- *          accent gradient #8b5cf6 → #a855f7 with soft outer glow
- *          pill/badge bg #271f45, pill text bright violet
- *          text-primary #ffffff, text-muted #a197c4
- * Type:    Display = Space Grotesk (tight, geometric)
- *          Body/UI = Inter
- * Layout:  Mobile-first single column, hero → input → filmstrip divider → result card → ad slots → footer
- * Signature: the "filmstrip" divider/loader — a row of small rounded frames that
- *            pulse with the accent glow like a scrubbing timeline.
- *
- * NOTE: This is a UI mockup. All "downloads" are placeholder text files
- * generated client-side (mockDownload) — no real video is fetched or hosted.
- */
+const User = makeIcon(<><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></>);
+const Clock = makeIcon(<><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></>);
+const X = makeIcon(<><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>);
+const ShieldCheck = makeIcon(<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></>);
+const TrendingUp = makeIcon(<><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></>);
+const Share2 = makeIcon(<><circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" /></>);
+const HistoryIcon = makeIcon(<><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l4 2" /></>);
+const Trash2 = makeIcon(<><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></>);
+const Eye = makeIcon(<><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" /><circle cx="12" cy="12" r="3" /></>);
+const Volume2 = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></>);
+const VolumeX = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></>);
 
 const STRINGS = {
   en: {
     dir: "ltr",
     seoTitle: "TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)",
-    seoDescription:
-      "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
+    seoDescription: "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
     eyebrow: "No watermark · No signup · No app",
     heroTitle: "Paste a link.\nGet the clip.",
-    heroSub:
-      "Drop in any TikTok link and pull the video, the audio, or the cover — clean, fast, and without the logo stamped on top.",
+    heroSub: "Drop in any TikTok link and pull the video, the audio, or the cover — clean, fast, and without the logo stamped on top.",
     placeholder: "https://www.tiktok.com/@user/video/...",
-    paste: "Paste",
-    fetch: "Fetch video",
-    fetching: "Fetching…",
+    paste: "Paste", fetch: "Fetch video", fetching: "Fetching…",
     errorTitle: "Couldn't read that link",
-    errorBody:
-      "Check that it's a public TikTok video URL and try again — private or removed videos can't be fetched.",
-    resultEyebrow: "Ready to download",
-    duration: "Duration",
-    by: "by",
-    dlVideoHD: "Video · HD",
-    dlVideoSD: "Video · SD",
-    dlAudio: "Audio · MP3",
-    dlCover: "Cover · JPG",
-    noWatermark: "watermark-free",
-    adLabel: "Advertisement",
-    langToggle: "العربية",
+    errorBody: "Check that it's a public TikTok video URL and try again — private or removed videos can't be fetched.",
+    apiErrorTitle: "Something went wrong",
+    apiErrorBody: "The download service didn't return a result. Try again in a moment, or double-check the link.",
+    resultEyebrow: "Ready to download", duration: "Duration", by: "by",
+    dlVideoHD: "Video · HD", dlVideoSD: "Video · SD", dlAudio: "Audio · MP3", dlCover: "Cover · JPG",
+    noWatermark: "watermark-free", langToggle: "العربية",
     footerTagline: "Built for speed. Not affiliated with TikTok.",
     footerLinks: ["Terms of Service", "Privacy Policy", "DMCA & Disclaimer"],
-    disclaimer:
-      "TikFetch is an independent tool and is not affiliated with, endorsed by, or sponsored by TikTok or ByteDance Ltd. TikFetch does not host or store any video files on its servers and respects the intellectual property rights of original creators.",
-    close: "Close",
-    reset: "Clear",
-    pasteFail: "Couldn't read clipboard — paste manually instead.",
-    pasteEmpty: "Clipboard is empty.",
+    disclaimer: "TikFetch is an independent tool and is not affiliated with, endorsed by, or sponsored by TikTok or ByteDance Ltd. TikFetch does not host or store any video files on its servers and respects the intellectual property rights of original creators.",
+    close: "Close", reset: "Clear",
+    pasteFail: "Couldn't read clipboard — paste manually instead.", pasteEmpty: "Clipboard is empty.",
     needLink: "Paste a link first.",
-    mockDownload: "Mock file downloaded — no real video was fetched.",
-    topBanner: "Top Banner",
-    midContent: "Mid-Content",
-    bottomBanner: "Bottom Banner",
-    trustBadge: "We don't store your videos",
-    statsCount: "2.4M+ videos converted",
-    progressLabel: "Processing",
-    share: "Share",
-    shareFail: "Couldn't open share sheet — link copied instead.",
-    shareCopied: "Link copied to clipboard.",
-    historyTitle: "Recent links",
-    historyClear: "Clear",
-    historyEmpty: "Your recently fetched links will show up here.",
-    previewCta: "Preview first frame",
-    previewTitle: "First-frame preview",
-    previewHint: "This is the first frame of the video you're about to download.",
+    topBanner: "Top Banner", midContent: "Mid-Content", bottomBanner: "Bottom Banner",
+    trustBadge: "We don't store your videos", statsCount: "2.4M+ videos converted",
+    progressLabel: "Processing", share: "Share",
+    shareFail: "Couldn't open share sheet — link copied instead.", shareCopied: "Link copied to clipboard.",
+    historyTitle: "Recent links", historyClear: "Clear", historyEmpty: "Your recently fetched links will show up here.",
+    previewCta: "Preview first frame", previewTitle: "First-frame preview",
+    previewHint: "This is the cover frame of the video you're about to download.",
     audioNote: "High-quality MP3 · works on every device",
-    muteLabel: "Mute sounds",
-    unmuteLabel: "Unmute sounds",
+    muteLabel: "Mute sounds", unmuteLabel: "Unmute sounds",
     invalidLinkTitle: "That doesn't look like a TikTok link",
-    invalidLinkBody:
-      "Paste a full TikTok video URL (tiktok.com/@user/video/... or a vm.tiktok.com short link) and try again.",
+    invalidLinkBody: "Paste a full TikTok video URL (tiktok.com/@user/video/... or a vm.tiktok.com short link) and try again.",
     modals: {
-      tos: {
-        title: "Terms of Service",
-        body: [
-          "This is placeholder copy for review purposes only — final legal text should be drafted or approved by counsel before launch.",
-          "By using this tool you agree to use it only for content you own or have explicit rights to download, and to comply with TikTok's own Terms of Service at all times.",
-          "The service is provided \"as is\" with no uptime or accuracy guarantees while in this mockup / pre-launch phase.",
-        ],
-      },
-      privacy: {
-        title: "Privacy Policy",
-        body: [
-          "Placeholder copy for review purposes only.",
-          "This mockup does not collect, store, or transmit any personal data — no URLs, files, or analytics are processed in this preview build.",
-          "A production privacy policy will disclose what's logged (if anything), retention windows, and any third-party ad or analytics vendors used.",
-        ],
-      },
-      dmca: {
-        title: "DMCA & Takedown Policy",
-        body: [
-          "Placeholder copy for review purposes only.",
-          "TikFetch does not host video files. Rights holders who believe their content is being made available without authorization may submit a takedown notice with the standard DMCA elements: identification of the work, the allegedly infringing material, and contact information.",
-          "Verified requests will be actioned promptly once this policy is finalized and a designated agent is on file.",
-        ],
-      },
+      tos: { title: "Terms of Service", body: [
+        "This is placeholder copy for review purposes only — final legal text should be drafted or approved by counsel before launch.",
+        "By using this tool you agree to use it only for content you own or have explicit rights to download, and to comply with TikTok's own Terms of Service at all times.",
+        "The service is provided \"as is\" with no uptime or accuracy guarantees while in this mockup / pre-launch phase.",
+      ]},
+      privacy: { title: "Privacy Policy", body: [
+        "Placeholder copy for review purposes only.",
+        "This build does not collect, store, or transmit any personal data beyond the TikTok link needed to fetch a download.",
+        "A production privacy policy will disclose what's logged (if anything), retention windows, and any third-party ad or analytics vendors used.",
+      ]},
+      dmca: { title: "DMCA & Takedown Policy", body: [
+        "Placeholder copy for review purposes only.",
+        "TikFetch does not host video files. Rights holders who believe their content is being made available without authorization may submit a takedown notice with the standard DMCA elements: identification of the work, the allegedly infringing material, and contact information.",
+        "Verified requests will be actioned promptly once this policy is finalized and a designated agent is on file.",
+      ]},
     },
   },
   ar: {
     dir: "rtl",
     seoTitle: "TikFetch — تنزيل فيديوهات تيك توك بدون علامة مائية (HD وMP3)",
-    seoDescription:
-      "أداة مجانية لتنزيل فيديوهات تيك توك بجودة عالية أو استخراج الصوت MP3 أو صورة الغلاف — بدون علامة مائية، بدون تسجيل، وبدون تطبيق.",
+    seoDescription: "أداة مجانية لتنزيل فيديوهات تيك توك بجودة عالية أو استخراج الصوت MP3 أو صورة الغلاف — بدون علامة مائية، بدون تسجيل، وبدون تطبيق.",
     eyebrow: "بدون علامة مائية · بدون تسجيل · بدون تطبيق",
     heroTitle: "الصق الرابط.\nاحصل على المقطع.",
-    heroSub:
-      "أدخل أي رابط تيك توك واحصل على الفيديو أو الصوت أو صورة الغلاف — بسرعة وبدون شعار الموقع.",
+    heroSub: "أدخل أي رابط تيك توك واحصل على الفيديو أو الصوت أو صورة الغلاف — بسرعة وبدون شعار الموقع.",
     placeholder: "https://www.tiktok.com/@user/video/...",
-    paste: "لصق",
-    fetch: "جلب الفيديو",
-    fetching: "جاري الجلب…",
+    paste: "لصق", fetch: "جلب الفيديو", fetching: "جاري الجلب…",
     errorTitle: "تعذّرت قراءة هذا الرابط",
-    errorBody:
-      "تأكد من أنه رابط فيديو عام على تيك توك وحاول مرة أخرى — لا يمكن جلب الفيديوهات الخاصة أو المحذوفة.",
-    resultEyebrow: "جاهز للتنزيل",
-    duration: "المدة",
-    by: "بواسطة",
-    dlVideoHD: "فيديو · عالي الجودة",
-    dlVideoSD: "فيديو · قياسي",
-    dlAudio: "صوت · MP3",
-    dlCover: "الغلاف · JPG",
-    noWatermark: "بدون علامة مائية",
-    adLabel: "إعلان",
-    langToggle: "English",
+    errorBody: "تأكد من أنه رابط فيديو عام على تيك توك وحاول مرة أخرى — لا يمكن جلب الفيديوهات الخاصة أو المحذوفة.",
+    apiErrorTitle: "حدث خطأ ما",
+    apiErrorBody: "لم تُرجع خدمة التنزيل أي نتيجة. حاول مرة أخرى بعد قليل، أو تأكد من الرابط.",
+    resultEyebrow: "جاهز للتنزيل", duration: "المدة", by: "بواسطة",
+    dlVideoHD: "فيديو · عالي الجودة", dlVideoSD: "فيديو · قياسي", dlAudio: "صوت · MP3", dlCover: "الغلاف · JPG",
+    noWatermark: "بدون علامة مائية", langToggle: "English",
     footerTagline: "مصمم للسرعة. غير تابع لتيك توك.",
     footerLinks: ["شروط الخدمة", "سياسة الخصوصية", "إخلاء المسؤولية"],
-    disclaimer:
-      "TikFetch أداة مستقلة وغير تابعة لتيك توك أو شركة ByteDance ولا تحظى بدعمها أو رعايتها. لا يقوم TikFetch باستضافة أو تخزين أي ملفات فيديو على خوادمه، ويحترم حقوق الملكية الفكرية لصانعي المحتوى الأصليين.",
-    close: "إغلاق",
-    reset: "مسح",
-    pasteFail: "تعذّرت قراءة الحافظة — الصق يدويًا بدلاً من ذلك.",
-    pasteEmpty: "الحافظة فارغة.",
+    disclaimer: "TikFetch أداة مستقلة وغير تابعة لتيك توك أو شركة ByteDance ولا تحظى بدعمها أو رعايتها. لا يقوم TikFetch باستضافة أو تخزين أي ملفات فيديو على خوادمه، ويحترم حقوق الملكية الفكرية لصانعي المحتوى الأصليين.",
+    close: "إغلاق", reset: "مسح",
+    pasteFail: "تعذّرت قراءة الحافظة — الصق يدويًا بدلاً من ذلك.", pasteEmpty: "الحافظة فارغة.",
     needLink: "الصق رابطًا أولاً.",
-    mockDownload: "تم تنزيل ملف تجريبي — لم يتم جلب فيديو حقيقي.",
-    topBanner: "لافتة علوية",
-    midContent: "محتوى وسطي",
-    bottomBanner: "لافتة سفلية",
-    trustBadge: "لا نخزّن فيديوهاتك",
-    statsCount: "+2.4 مليون فيديو تم تحويله",
-    progressLabel: "جارٍ المعالجة",
-    share: "مشاركة",
-    shareFail: "تعذّر فتح المشاركة — تم نسخ الرابط بدلاً من ذلك.",
-    shareCopied: "تم نسخ الرابط.",
-    historyTitle: "الروابط الأخيرة",
-    historyClear: "مسح",
-    historyEmpty: "ستظهر هنا الروابط التي جلبتها مؤخرًا.",
-    previewCta: "معاينة أول فريم",
-    previewTitle: "معاينة الفريم الأول",
-    previewHint: "هذا هو أول فريم من الفيديو الذي على وشك تنزيله.",
+    topBanner: "لافتة علوية", midContent: "محتوى وسطي", bottomBanner: "لافتة سفلية",
+    trustBadge: "لا نخزّن فيديوهاتك", statsCount: "+2.4 مليون فيديو تم تحويله",
+    progressLabel: "جارٍ المعالجة", share: "مشاركة",
+    shareFail: "تعذّر فتح المشاركة — تم نسخ الرابط بدلاً من ذلك.", shareCopied: "تم نسخ الرابط.",
+    historyTitle: "الروابط الأخيرة", historyClear: "مسح", historyEmpty: "ستظهر هنا الروابط التي جلبتها مؤخرًا.",
+    previewCta: "معاينة أول فريم", previewTitle: "معاينة الفريم الأول",
+    previewHint: "هذه صورة الغلاف للفيديو الذي على وشك تنزيله.",
     audioNote: "MP3 عالي الجودة · يعمل على جميع الأجهزة",
-    muteLabel: "كتم الأصوات",
-    unmuteLabel: "تفعيل الأصوات",
+    muteLabel: "كتم الأصوات", unmuteLabel: "تفعيل الأصوات",
     invalidLinkTitle: "هذا لا يبدو رابط تيك توك",
-    invalidLinkBody:
-      "الصق رابط فيديو تيك توك كامل (tiktok.com/@user/video/... أو رابط مختصر من vm.tiktok.com) وحاول مرة أخرى.",
+    invalidLinkBody: "الصق رابط فيديو تيك توك كامل (tiktok.com/@user/video/... أو رابط مختصر من vm.tiktok.com) وحاول مرة أخرى.",
     modals: {
-      tos: {
-        title: "شروط الخدمة",
-        body: [
-          "هذا نص مبدئي لأغراض المراجعة فقط — يجب صياغة النص القانوني النهائي أو اعتماده من قبل مستشار قانوني قبل الإطلاق.",
-          "باستخدامك لهذه الأداة، فإنك توافق على استخدامها فقط للمحتوى الذي تملكه أو تملك حقوقًا صريحة لتنزيله، والالتزام بشروط خدمة تيك توك في جميع الأوقات.",
-          "تُقدَّم الخدمة \"كما هي\" دون أي ضمانات لوقت التشغيل أو الدقة خلال هذه المرحلة التجريبية.",
-        ],
-      },
-      privacy: {
-        title: "سياسة الخصوصية",
-        body: [
-          "نص مبدئي لأغراض المراجعة فقط.",
-          "لا يقوم هذا النموذج بجمع أو تخزين أو نقل أي بيانات شخصية — لا يتم معالجة أي روابط أو ملفات أو بيانات تحليلية في هذه النسخة التجريبية.",
-          "ستوضح سياسة الخصوصية النهائية ما يتم تسجيله (إن وجد)، ومدة الاحتفاظ بالبيانات، وأي جهات إعلانية أو تحليلية خارجية مستخدمة.",
-        ],
-      },
-      dmca: {
-        title: "سياسة DMCA وطلبات الإزالة",
-        body: [
-          "نص مبدئي لأغراض المراجعة فقط.",
-          "لا يقوم TikFetch باستضافة ملفات الفيديو. يمكن لأصحاب الحقوق الذين يعتقدون أن محتواهم متاح دون تصريح تقديم إشعار إزالة يتضمن العناصر القياسية: تحديد العمل، والمادة المخالفة المزعومة، ومعلومات الاتصال.",
-          "سيتم التعامل مع الطلبات الموثقة فور استكمال هذه السياسة وتعيين وكيل مختص.",
-        ],
-      },
+      tos: { title: "شروط الخدمة", body: [
+        "هذا نص مبدئي لأغراض المراجعة فقط — يجب صياغة النص القانوني النهائي أو اعتماده من قبل مستشار قانوني قبل الإطلاق.",
+        "باستخدامك لهذه الأداة، فإنك توافق على استخدامها فقط للمحتوى الذي تملكه أو تملك حقوقًا صريحة لتنزيله، والالتزام بشروط خدمة تيك توك في جميع الأوقات.",
+        "تُقدَّم الخدمة \"كما هي\" دون أي ضمانات لوقت التشغيل أو الدقة خلال هذه المرحلة التجريبية.",
+      ]},
+      privacy: { title: "سياسة الخصوصية", body: [
+        "نص مبدئي لأغراض المراجعة فقط.",
+        "لا يقوم هذا الإصدار بجمع أو تخزين أو نقل أي بيانات شخصية عدا رابط تيك توك اللازم لجلب التنزيل.",
+        "ستوضح سياسة الخصوصية النهائية ما يتم تسجيله (إن وجد)، ومدة الاحتفاظ بالبيانات، وأي جهات إعلانية أو تحليلية خارجية مستخدمة.",
+      ]},
+      dmca: { title: "سياسة DMCA وطلبات الإزالة", body: [
+        "نص مبدئي لأغراض المراجعة فقط.",
+        "لا يقوم TikFetch باستضافة ملفات الفيديو. يمكن لأصحاب الحقوق الذين يعتقدون أن محتواهم متاح دون تصريح تقديم إشعار إزالة يتضمن العناصر القياسية: تحديد العمل، والمادة المخالفة المزعومة، ومعلومات الاتصال.",
+        "سيتم التعامل مع الطلبات الموثقة فور استكمال هذه السياسة وتعيين وكيل مختص.",
+      ]},
     },
   },
 };
 
-// Geometric flag + zigzag mark — flat vector, sharp angular construction.
 function TLogo({ size = 18, color = "#FFFFFF", className = "" }) {
   const h = size;
   const w = Math.round((size * 120) / 105);
@@ -479,29 +242,19 @@ function TLogo({ size = 18, color = "#FFFFFF", className = "" }) {
   );
 }
 
-// Pulsing glowing 3D sphere — signature loading / processing indicator.
 function GlowSphere({ size = 72 }) {
   return (
     <div className="relative flex items-center justify-center" style={{ width: size, height: size }}>
-      <div
-        className="absolute inset-0 rounded-full blur-2xl"
-        style={{
-          background: "radial-gradient(circle at 35% 30%, #c4b5fd, #8b5cf6 45%, #6d28d9 75%)",
-          animation: "sphereHalo 1.6s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="relative rounded-full"
-        style={{
-          width: size,
-          height: size,
-          background:
-            "radial-gradient(circle at 32% 28%, #f3e8ff 0%, #c4b5fd 22%, #a855f7 48%, #7c3aed 72%, #4c1d95 100%)",
-          boxShadow:
-            "0 0 50px 6px rgba(168,85,247,0.55), inset -8px -8px 18px rgba(0,0,0,0.35), inset 5px 5px 12px rgba(255,255,255,0.35)",
-          animation: "spherePulse 1.6s ease-in-out infinite",
-        }}
-      />
+      <div className="absolute inset-0 rounded-full blur-2xl" style={{
+        background: "radial-gradient(circle at 35% 30%, #c4b5fd, #8b5cf6 45%, #6d28d9 75%)",
+        animation: "sphereHalo 1.6s ease-in-out infinite",
+      }} />
+      <div className="relative rounded-full" style={{
+        width: size, height: size,
+        background: "radial-gradient(circle at 32% 28%, #f3e8ff 0%, #c4b5fd 22%, #a855f7 48%, #7c3aed 72%, #4c1d95 100%)",
+        boxShadow: "0 0 50px 6px rgba(168,85,247,0.55), inset -8px -8px 18px rgba(0,0,0,0.35), inset 5px 5px 12px rgba(255,255,255,0.35)",
+        animation: "spherePulse 1.6s ease-in-out infinite",
+      }} />
     </div>
   );
 }
@@ -511,15 +264,8 @@ function FilmStrip({ animate = false }) {
   return (
     <div className="flex items-center gap-1.5 py-1" aria-hidden="true">
       {frames.map((_, i) => (
-        <div
-          key={i}
-          className="h-2 flex-1 rounded-full bg-[#8b5cf6]/15"
-          style={
-            animate
-              ? { animation: `pulseFrame 1.1s ease-in-out ${i * 0.06}s infinite` }
-              : { opacity: 0.4 + (i % 3) * 0.15 }
-          }
-        />
+        <div key={i} className="h-2 flex-1 rounded-full bg-[#8b5cf6]/15"
+          style={animate ? { animation: `pulseFrame 1.1s ease-in-out ${i * 0.06}s infinite` } : { opacity: 0.4 + (i % 3) * 0.15 }} />
       ))}
     </div>
   );
@@ -528,11 +274,7 @@ function FilmStrip({ animate = false }) {
 function AdSlot({ label, size, wide = false }) {
   return (
     <div className="w-full">
-      <div
-        className={`mx-auto flex h-full min-h-[64px] w-full items-center justify-center rounded-2xl border border-dashed border-[#8b5cf6]/20 bg-[#1d1735]/40 text-center ${
-          wide ? "max-w-4xl md:min-h-[80px]" : "max-w-md md:max-w-2xl lg:max-w-4xl"
-        }`}
-      >
+      <div className={`mx-auto flex h-full min-h-[64px] w-full items-center justify-center rounded-2xl border border-dashed border-[#8b5cf6]/20 bg-[#1d1735]/40 text-center ${wide ? "max-w-4xl md:min-h-[80px]" : "max-w-md md:max-w-2xl lg:max-w-4xl"}`}>
         <div>
           <p className="text-[10px] uppercase tracking-[0.2em] text-[#a197c4]/60">{label}</p>
           <p className="mt-0.5 text-xs text-[#a197c4]/40">{size}</p>
@@ -558,9 +300,7 @@ function ResultSkeleton() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2 px-4 pb-4 sm:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-11 animate-pulse rounded-full bg-[#8b5cf6]/10" />
-        ))}
+        {Array.from({ length: 4 }).map((_, i) => (<div key={i} className="h-11 animate-pulse rounded-full bg-[#8b5cf6]/10" />))}
       </div>
     </section>
   );
@@ -568,30 +308,14 @@ function ResultSkeleton() {
 
 function Modal({ title, body, onClose, closeLabel }) {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center"
-      onClick={onClose}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="max-h-[80vh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] p-5 shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl"
-      >
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()} className="max-h-[80vh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] p-5 shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-display text-lg font-semibold text-white">{title}</h3>
-          <button
-            type="button"
-            onClick={onClose}
-            className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white"
-          >
-            {closeLabel}
-          </button>
+          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{closeLabel}</button>
         </div>
         <div className="mt-4 space-y-3">
-          {body.map((p, i) => (
-            <p key={i} className="text-sm leading-relaxed text-[#a197c4]">
-              {p}
-            </p>
-          ))}
+          {body.map((p, i) => (<p key={i} className="text-sm leading-relaxed text-[#a197c4]">{p}</p>))}
         </div>
       </div>
     </div>
@@ -599,51 +323,26 @@ function Modal({ title, body, onClose, closeLabel }) {
 }
 
 function LanguageModal({ lang, onSelect, onClose, labels }) {
-  const options = [
-    { code: "en", label: "English" },
-    { code: "ar", label: "العربية" },
-  ];
+  const options = [{ code: "en", label: "English" }, { code: "ar", label: "العربية" }];
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center"
-      onClick={onClose}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-sm overflow-hidden rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl"
-      >
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()} className="w-full max-w-sm overflow-hidden rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
         <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-[#8b5cf6]/25 sm:hidden" />
         <div className="flex items-center justify-between px-5 pt-4">
           <h3 className="font-display text-base font-semibold text-white">{labels.title}</h3>
-          <button
-            type="button"
-            onClick={onClose}
-            className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white"
-          >
-            {labels.close}
-          </button>
+          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
         </div>
         <div className="mt-3 px-3 pb-4">
           {options.map((opt) => {
             const active = lang === opt.code;
             return (
-              <button
-                key={opt.code}
-                type="button"
-                onClick={() => onSelect(opt.code)}
-                className={`flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-sm transition-colors ${
-                  active
-                    ? "bg-gradient-to-r from-[#8b5cf6]/20 to-[#a855f7]/20 text-white"
-                    : "text-[#c9bdf0] hover:bg-[#1d1735]"
-                }`}
-              >
+              <button key={opt.code} type="button" onClick={() => onSelect(opt.code)}
+                className={`flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-sm transition-colors ${active ? "bg-gradient-to-r from-[#8b5cf6]/20 to-[#a855f7]/20 text-white" : "text-[#c9bdf0] hover:bg-[#1d1735]"}`}>
                 <span className="flex items-center gap-3">
                   <Globe size={15} className={active ? "text-[#a855f7]" : "text-[#a197c4]"} />
                   {opt.label}
                 </span>
-                {active && (
-                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] shadow-[0_0_8px_rgba(168,85,247,0.9)]" />
-                )}
+                {active && (<span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] shadow-[0_0_8px_rgba(168,85,247,0.9)]" />)}
               </button>
             );
           })}
@@ -664,19 +363,14 @@ function Toast({ message }) {
   );
 }
 
-function DownloadButton({ icon: Icon, label, tone = "primary", onClick }) {
+function DownloadButton({ icon: Icon, label, tone = "primary", onClick, disabled }) {
   const tones = {
-    primary:
-      "bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white shadow-[0_0_24px_-4px_rgba(168,85,247,0.65)] hover:shadow-[0_0_32px_-4px_rgba(168,85,247,0.85)]",
-    secondary:
-      "bg-[#271f45] text-[#c9bdf0] border border-[#8b5cf6]/15 hover:bg-[#33285c] hover:text-white",
+    primary: "bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white shadow-[0_0_24px_-4px_rgba(168,85,247,0.65)] hover:shadow-[0_0_32px_-4px_rgba(168,85,247,0.85)]",
+    secondary: "bg-[#271f45] text-[#c9bdf0] border border-[#8b5cf6]/15 hover:bg-[#33285c] hover:text-white",
   };
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium transition-all active:scale-[0.97] ${tones[tone]}`}
-    >
+    <button type="button" onClick={onClick} disabled={disabled}
+      className={`flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium transition-all active:scale-[0.97] disabled:opacity-40 ${tones[tone]}`}>
       <Icon size={16} strokeWidth={2} />
       {label}
     </button>
@@ -686,8 +380,7 @@ function DownloadButton({ icon: Icon, label, tone = "primary", onClick }) {
 function TrustBadge({ label }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/50 px-3 py-1.5 text-[11px] font-medium text-[#c9bdf0]">
-      <ShieldCheck size={12} className="text-[#a855f7]" />
-      {label}
+      <ShieldCheck size={12} className="text-[#a855f7]" />{label}
     </span>
   );
 }
@@ -695,8 +388,7 @@ function TrustBadge({ label }) {
 function StatCounter({ label }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/50 px-3 py-1.5 text-[11px] font-medium text-[#c9bdf0]">
-      <TrendingUp size={12} className="text-[#a855f7]" />
-      {label}
+      <TrendingUp size={12} className="text-[#a855f7]" />{label}
     </span>
   );
 }
@@ -705,50 +397,32 @@ function ProgressBar({ progress }) {
   return (
     <div className="w-full max-w-[220px]">
       <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#271f45]">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] transition-[width] duration-200 ease-out"
-          style={{ width: `${progress}%` }}
-        />
+        <div className="h-full rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] transition-[width] duration-200 ease-out" style={{ width: `${progress}%` }} />
       </div>
     </div>
   );
 }
 
 function HistoryList({ items, onSelect, onClear, labels }) {
-  if (!items.length) {
-    return <p className="mt-2 text-xs text-[#a197c4]/50">{labels.empty}</p>;
-  }
+  if (!items.length) return <p className="mt-2 text-xs text-[#a197c4]/50">{labels.empty}</p>;
   return (
     <div className="mt-2 flex flex-col gap-1.5">
       {items.map((item, i) => (
-        <button
-          key={item.ts + i}
-          type="button"
-          onClick={() => onSelect(item.url)}
-          dir="ltr"
-          className="flex items-center gap-2 rounded-xl border border-[#8b5cf6]/10 bg-[#1d1735]/40 px-3 py-2 text-left text-xs text-[#a197c4] transition-colors hover:border-[#8b5cf6]/30 hover:text-white"
-        >
+        <button key={item.ts + i} type="button" onClick={() => onSelect(item.url)} dir="ltr"
+          className="flex items-center gap-2 rounded-xl border border-[#8b5cf6]/10 bg-[#1d1735]/40 px-3 py-2 text-left text-xs text-[#a197c4] transition-colors hover:border-[#8b5cf6]/30 hover:text-white">
           <Link2 size={12} className="shrink-0 text-[#a197c4]/60" />
           <span className="min-w-0 flex-1 truncate">{item.url}</span>
         </button>
       ))}
-      <button
-        type="button"
-        onClick={onClear}
-        className="mt-1 flex w-fit items-center gap-1 self-end text-[11px] text-[#a197c4]/60 transition-colors hover:text-red-300"
-      >
-        <Trash2 size={11} />
-        {labels.clear}
+      <button type="button" onClick={onClear} className="mt-1 flex w-fit items-center gap-1 self-end text-[11px] text-[#a197c4]/60 transition-colors hover:text-red-300">
+        <Trash2 size={11} />{labels.clear}
       </button>
     </div>
   );
 }
 
-// Lightweight synthesized UI sounds via Web Audio API — no external audio
-// files to fetch/host. Silently no-ops if sound is disabled or unsupported.
 function useUiSound(enabled) {
   const ctxRef = useRef(null);
-
   const getCtx = () => {
     if (!enabled || typeof window === "undefined") return null;
     try {
@@ -757,82 +431,48 @@ function useUiSound(enabled) {
         if (!AC) return null;
         ctxRef.current = new AC();
       }
-      if (ctxRef.current.state === "suspended") {
-        ctxRef.current.resume().catch(() => {});
-      }
+      if (ctxRef.current.state === "suspended") ctxRef.current.resume().catch(() => {});
       return ctxRef.current;
-    } catch {
-      return null;
-    }
+    } catch { return null; }
   };
-
   const tone = (freq, start, duration, type = "sine", peakGain = 0.05) => {
     const ctx = getCtx();
     if (!ctx) return;
     try {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
-      osc.type = type;
-      osc.frequency.value = freq;
+      osc.type = type; osc.frequency.value = freq;
       const t0 = ctx.currentTime + start;
       gain.gain.setValueAtTime(0, t0);
       gain.gain.linearRampToValueAtTime(peakGain, t0 + 0.008);
       gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(t0);
-      osc.stop(t0 + duration + 0.02);
-    } catch {
-      // Audio graph unavailable mid-call — fail silently, it's decoration only.
-    }
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(t0); osc.stop(t0 + duration + 0.02);
+    } catch {}
   };
-
   return {
     click: () => tone(720, 0, 0.06, "square", 0.035),
     focus: () => tone(880, 0, 0.07, "sine", 0.02),
-    success: () => {
-      tone(660, 0, 0.12, "sine", 0.045);
-      tone(990, 0.09, 0.18, "sine", 0.045);
-    },
-    error: () => {
-      tone(180, 0, 0.09, "sine", 0.05);
-      tone(150, 0.13, 0.12, "sine", 0.05);
-    },
+    success: () => { tone(660, 0, 0.12, "sine", 0.045); tone(990, 0.09, 0.18, "sine", 0.045); },
+    error: () => { tone(180, 0, 0.09, "sine", 0.05); tone(150, 0.13, 0.12, "sine", 0.05); },
   };
 }
 
-function PreviewModal({ onClose, labels }) {
+function PreviewModal({ cover, onClose, labels }) {
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-sm overflow-hidden rounded-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)]"
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()} className="w-full max-w-sm overflow-hidden rounded-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)]">
         <div className="flex items-center justify-between px-5 pt-4">
           <h3 className="font-display text-base font-semibold text-white">{labels.title}</h3>
-          <button
-            type="button"
-            onClick={onClose}
-            className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white"
-          >
-            {labels.close}
-          </button>
+          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
         </div>
         <div className="p-5">
-          <div
-            className="relative mx-auto aspect-[9/16] w-full max-w-[220px] overflow-hidden rounded-2xl"
-            style={{ background: "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}
-          >
+          <div className="relative mx-auto aspect-[9/16] w-full max-w-[220px] overflow-hidden rounded-2xl"
+            style={{ background: cover ? `url(${cover}) center/cover no-repeat` : "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}>
             <div className="flex h-full w-full items-center justify-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm">
                 <Play size={20} className="translate-x-[2px] fill-white text-white" />
               </div>
-            </div>
-            <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-black/60 px-2 py-1 text-[10px] text-white/80">
-              <Clock size={10} /> 0:38
             </div>
           </div>
           <p className="mt-3 text-center text-xs leading-relaxed text-[#a197c4]">{labels.hint}</p>
@@ -845,7 +485,7 @@ function PreviewModal({ onClose, labels }) {
 function TikFetchApp() {
   const [lang, setLang] = useState("en");
   const [view, setView] = useState("idle"); // idle | loading | result | error
-  const [activeModal, setActiveModal] = useState(null); // null | "tos" | "privacy" | "dmca"
+  const [activeModal, setActiveModal] = useState(null);
   const [langModalOpen, setLangModalOpen] = useState(false);
   const [url, setUrl] = useState("");
   const [toast, setToast] = useState(null);
@@ -853,14 +493,14 @@ function TikFetchApp() {
   const [history, setHistory] = useState([]);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [errorKind, setErrorKind] = useState("empty"); // "empty" | "invalid"
+  const [errorKind, setErrorKind] = useState("empty");
+  const [result, setResult] = useState(null); // { videoHD, videoSD, audio, cover, title, author }
   const progressTimer = useRef(null);
   const sound = useUiSound(soundEnabled);
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
   const isValidTikTokUrl = (value) => /^(https?:\/\/)?([\w-]+\.)?tiktok\.com\//i.test(value.trim());
 
-  // Keep <html lang/dir> and document.title in sync with the active language.
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = t.dir;
@@ -869,18 +509,13 @@ function TikFetchApp() {
     if (descTag) descTag.setAttribute("content", t.seoDescription);
   }, [lang]);
 
-  // Load recent-links history from this browser only — never sent anywhere.
   useEffect(() => {
     try {
       const saved = window.localStorage.getItem("tikfetch:history");
       if (saved) setHistory(JSON.parse(saved));
-    } catch {
-      // localStorage unavailable (private mode, etc.) — history just won't persist.
-    }
+    } catch {}
   }, []);
 
-  // If the user already granted clipboard-read permission previously, quietly
-  // prefill a TikTok link they have copied — never prompts, never reads otherwise.
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -889,16 +524,10 @@ function TikFetchApp() {
         const status = await navigator.permissions.query({ name: "clipboard-read" });
         if (status.state !== "granted" || cancelled) return;
         const text = await navigator.clipboard.readText();
-        if (!cancelled && text && /tiktok\.com/i.test(text)) {
-          setUrl(text.trim());
-        }
-      } catch {
-        // Permission API or clipboard read unsupported/denied — silently skip.
-      }
+        if (!cancelled && text && /tiktok\.com/i.test(text)) setUrl(text.trim());
+      } catch {}
     })();
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, []);
 
   const showToast = (message) => {
@@ -911,17 +540,12 @@ function TikFetchApp() {
     sound.click();
     try {
       const text = await navigator.clipboard.readText();
-      if (!text) {
-        showToast(t.pasteEmpty);
-        return;
-      }
+      if (!text) { showToast(t.pasteEmpty); return; }
       setUrl(text.trim());
-    } catch {
-      showToast(t.pasteFail);
-    }
+    } catch { showToast(t.pasteFail); }
   };
 
-  const handleFetch = () => {
+  const handleFetch = async () => {
     const trimmed = url.trim();
     if (!trimmed) {
       showToast(t.needLink);
@@ -946,18 +570,34 @@ function TikFetchApp() {
       setProgress((p) => (p >= 92 ? p : p + Math.max(1, Math.round((100 - p) / 12))));
     }, 120);
 
-    window.setTimeout(() => {
+    try {
+      const data = await fetchTikTokData(trimmed);
       window.clearInterval(progressTimer.current);
       setProgress(100);
+
+      if (!data.videoHD && !data.videoSD) {
+        setErrorKind("api");
+        sound.error();
+        setView("error");
+        return;
+      }
+
+      setResult(data);
       saveToHistory(trimmed);
       setView("result");
       sound.success();
-    }, 1500);
+    } catch (err) {
+      window.clearInterval(progressTimer.current);
+      setErrorKind("api");
+      sound.error();
+      setView("error");
+    }
   };
 
   const handleReset = () => {
     sound.click();
     setUrl("");
+    setResult(null);
     setView("idle");
     setProgress(0);
     window.clearInterval(progressTimer.current);
@@ -966,22 +606,14 @@ function TikFetchApp() {
   const saveToHistory = (link) => {
     setHistory((prev) => {
       const next = [{ url: link, ts: Date.now() }, ...prev.filter((h) => h.url !== link)].slice(0, 5);
-      try {
-        window.localStorage.setItem("tikfetch:history", JSON.stringify(next));
-      } catch {
-        // Ignore write failures (storage disabled/full) — UI state still updates.
-      }
+      try { window.localStorage.setItem("tikfetch:history", JSON.stringify(next)); } catch {}
       return next;
     });
   };
 
   const clearHistory = () => {
     setHistory([]);
-    try {
-      window.localStorage.removeItem("tikfetch:history");
-    } catch {
-      // No-op if storage is unavailable.
-    }
+    try { window.localStorage.removeItem("tikfetch:history"); } catch {}
   };
 
   const handleShareLink = async () => {
@@ -997,26 +629,22 @@ function TikFetchApp() {
       try {
         await navigator.clipboard.writeText(url);
         showToast(t.shareFail);
-      } catch {
-        // Both share and clipboard write failed — silently give up.
-      }
+      } catch {}
     }
   };
 
-  // Triggers a genuine browser download of a small local placeholder file —
-  // stands in for a real asset until a compliant backend is connected.
-  const mockDownload = (filename, content, mime) => {
+  // Opens the real media URL returned by the API in a new tab so the
+  // browser/OS handles the actual save-to-device flow.
+  const openDownload = (href, label) => {
     sound.click();
-    const blob = new Blob([content], { type: mime });
-    const href = URL.createObjectURL(blob);
+    if (!href) { showToast(t.apiErrorBody); return; }
     const a = document.createElement("a");
     a.href = href;
-    a.download = filename;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(href);
-    showToast(t.mockDownload);
   };
 
   const isRTL = t.dir === "rtl";
@@ -1024,12 +652,8 @@ function TikFetchApp() {
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
       <div className="bg-noise">
-        {/* Top banner ad */}
-        <div className="px-5 pt-5">
-          <AdSlot label={t.topBanner} size="320×50" wide />
-        </div>
+        <div className="px-5 pt-5"><AdSlot label={t.topBanner} size="320×50" wide /></div>
 
-        {/* Top bar */}
         <header className="mx-auto flex max-w-md items-center justify-between px-5 pt-6 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a855f7] shadow-[0_0_16px_-2px_rgba(168,85,247,0.8)]">
@@ -1038,33 +662,21 @@ function TikFetchApp() {
             <span className="font-display text-[15px] font-semibold tracking-tight text-white">TikFetch</span>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setSoundEnabled((s) => !s)}
-              aria-label={soundEnabled ? t.muteLabel : t.unmuteLabel}
-              title={soundEnabled ? t.muteLabel : t.unmuteLabel}
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white"
-            >
+            <button type="button" onClick={() => setSoundEnabled((s) => !s)} aria-label={soundEnabled ? t.muteLabel : t.unmuteLabel} title={soundEnabled ? t.muteLabel : t.unmuteLabel}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
               {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
             </button>
-            <button
-              type="button"
-              onClick={() => setLangModalOpen(true)}
-              className="flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 px-3 py-1.5 text-xs text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white"
-            >
-              <Globe size={13} />
-              {lang === "en" ? "EN" : "AR"}
+            <button type="button" onClick={() => setLangModalOpen(true)}
+              className="flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 px-3 py-1.5 text-xs text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
+              <Globe size={13} />{lang === "en" ? "EN" : "AR"}
             </button>
           </div>
         </header>
 
-        {/* Hero */}
         <main className="mx-auto max-w-md px-5 pb-16 pt-10 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="mx-auto max-w-md md:max-w-xl">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#a855f7]">{t.eyebrow}</p>
-            <h1 className="font-display mt-3 whitespace-pre-line text-[34px] font-semibold leading-[1.08] tracking-tight text-white md:text-[44px]">
-              {t.heroTitle}
-            </h1>
+            <h1 className="font-display mt-3 whitespace-pre-line text-[34px] font-semibold leading-[1.08] tracking-tight text-white md:text-[44px]">{t.heroTitle}</h1>
             <p className="mt-3 text-[15px] leading-relaxed text-[#a197c4] md:text-base">{t.heroSub}</p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -1072,102 +684,59 @@ function TikFetchApp() {
               <StatCounter label={t.statsCount} />
             </div>
 
-            {/* Input box */}
             <div className="mt-7">
               <div className="glow-focus flex items-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/70 p-2 backdrop-blur-xl transition-all">
                 <div className="flex flex-1 items-center gap-2 px-3">
                   <Link2 size={16} className="shrink-0 text-[#a197c4]" />
-                  <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && handleFetch()}
-                    onFocus={() => sound.focus()}
-                    placeholder={t.placeholder}
-                    dir="ltr"
-                    className="w-full bg-transparent py-2 text-sm text-white placeholder:text-[#a197c4]/50 outline-none"
-                  />
+                  <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleFetch()}
+                    onFocus={() => sound.focus()} placeholder={t.placeholder} dir="ltr"
+                    className="w-full bg-transparent py-2 text-sm text-white placeholder:text-[#a197c4]/50 outline-none" />
                 </div>
                 {url && (
-                  <button
-                    type="button"
-                    aria-label={t.reset}
-                    onClick={handleReset}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#a197c4] transition-colors hover:bg-[#271f45] hover:text-white"
-                  >
+                  <button type="button" aria-label={t.reset} onClick={handleReset}
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#a197c4] transition-colors hover:bg-[#271f45] hover:text-white">
                     <X size={15} />
                   </button>
                 )}
-                <button
-                  type="button"
-                  aria-label={t.paste}
-                  onClick={handlePaste}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#271f45] text-[#c9bdf0] transition-all hover:bg-[#33285c] hover:text-white active:scale-95"
-                >
+                <button type="button" aria-label={t.paste} onClick={handlePaste}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#271f45] text-[#c9bdf0] transition-all hover:bg-[#33285c] hover:text-white active:scale-95">
                   <Clipboard size={15} />
                 </button>
               </div>
 
-              <button
-                type="button"
-                onClick={handleFetch}
-                disabled={view === "loading"}
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_-6px_rgba(168,85,247,0.75)] transition-all hover:shadow-[0_0_36px_-4px_rgba(168,85,247,0.95)] active:scale-[0.99] disabled:opacity-70"
-              >
+              <button type="button" onClick={handleFetch} disabled={view === "loading"}
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_-6px_rgba(168,85,247,0.75)] transition-all hover:shadow-[0_0_36px_-4px_rgba(168,85,247,0.95)] active:scale-[0.99] disabled:opacity-70">
                 {view === "loading" ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
                 {view === "loading" ? t.fetching : t.fetch}
               </button>
 
               {view !== "idle" && (
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="mt-2 w-full text-center text-xs text-[#a197c4]/70 transition-colors hover:text-white"
-                >
-                  {t.reset}
-                </button>
+                <button type="button" onClick={handleReset} className="mt-2 w-full text-center text-xs text-[#a197c4]/70 transition-colors hover:text-white">{t.reset}</button>
               )}
 
               {view === "idle" && (
                 <div className="mt-5">
                   <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#a197c4]/70">
-                    <HistoryIcon size={12} />
-                    {t.historyTitle}
+                    <HistoryIcon size={12} />{t.historyTitle}
                   </div>
-                  <HistoryList
-                    items={history}
-                    onSelect={setUrl}
-                    onClear={clearHistory}
-                    labels={{ empty: t.historyEmpty, clear: t.historyClear }}
-                  />
+                  <HistoryList items={history} onSelect={setUrl} onClear={clearHistory} labels={{ empty: t.historyEmpty, clear: t.historyClear }} />
                 </div>
               )}
             </div>
 
-            {/* Ad slot — mid-content, above card */}
-            <div className="mt-8">
-              <AdSlot label={t.midContent} size="336×280" />
-            </div>
+            <div className="mt-8"><AdSlot label={t.midContent} size="336×280" /></div>
+            <div className="mt-8"><FilmStrip animate={view === "loading"} /></div>
 
-            {/* Filmstrip divider */}
-            <div className="mt-8">
-              <FilmStrip animate={view === "loading"} />
-            </div>
-
-            {/* Loading — glowing sphere + real progress bar */}
             {view === "loading" && (
               <div className="mt-6 flex flex-col items-center justify-center gap-3 py-2">
                 <GlowSphere size={72} />
-                <p className="text-xs font-medium tracking-wide text-[#a197c4]">
-                  {t.progressLabel} · {progress}%
-                </p>
+                <p className="text-xs font-medium tracking-wide text-[#a197c4]">{t.progressLabel} · {progress}%</p>
                 <ProgressBar progress={progress} />
               </div>
             )}
             {view === "loading" && <ResultSkeleton />}
 
-            {/* Result card */}
-            {view === "result" && (
+            {view === "result" && result && (
               <section className="mt-6 overflow-hidden rounded-3xl border border-[#8b5cf6]/15 bg-[#1d1735]/70 backdrop-blur-xl">
                 <div className="flex items-center justify-between px-4 pt-4">
                   <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#a855f7]">{t.resultEyebrow}</p>
@@ -1175,113 +744,74 @@ function TikFetchApp() {
                 </div>
 
                 <div className="flex gap-3 p-4">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      sound.click();
-                      setPreviewOpen(true);
-                    }}
-                    aria-label={t.previewCta}
+                  <button type="button" onClick={() => { sound.click(); setPreviewOpen(true); }} aria-label={t.previewCta}
                     className="relative h-24 w-16 shrink-0 overflow-hidden rounded-2xl text-left transition-transform active:scale-95"
-                    style={{ background: "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}
-                  >
+                    style={{ background: result.cover ? `url(${result.cover}) center/cover no-repeat` : "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}>
                     <div className="flex h-full w-full items-center justify-center">
                       <div className="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm">
                         <Play size={12} className="translate-x-[1px] fill-white text-white" />
                       </div>
                     </div>
-                    <div className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-black/60 px-1.5 py-0.5 text-[9px] text-white/80">
-                      <Clock size={9} /> 0:38
-                    </div>
+                    {result.duration && (
+                      <div className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-black/60 px-1.5 py-0.5 text-[9px] text-white/80">
+                        <Clock size={9} /> {result.duration}
+                      </div>
+                    )}
                   </button>
                   <div className="flex min-w-0 flex-col justify-center gap-1.5">
-                    <p className="line-clamp-2 text-sm font-medium leading-snug text-white">
-                      Video title / caption placeholder text goes here for preview purposes
-                    </p>
-                    <p className="flex items-center gap-1 text-xs text-[#a197c4]">
-                      <User size={11} />
-                      {t.by} @creator.handle
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        sound.click();
-                        setPreviewOpen(true);
-                      }}
-                      className="flex w-fit items-center gap-1 text-[11px] font-medium text-[#a855f7] transition-colors hover:text-white"
-                    >
-                      <Eye size={11} />
-                      {t.previewCta}
+                    <p className="line-clamp-2 text-sm font-medium leading-snug text-white">{result.title || "TikTok video"}</p>
+                    {result.author && (
+                      <p className="flex items-center gap-1 text-xs text-[#a197c4]">
+                        <User size={11} />{t.by} @{result.author}
+                      </p>
+                    )}
+                    <button type="button" onClick={() => { sound.click(); setPreviewOpen(true); }}
+                      className="flex w-fit items-center gap-1 text-[11px] font-medium text-[#a855f7] transition-colors hover:text-white">
+                      <Eye size={11} />{t.previewCta}
                     </button>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 px-4 pb-3 text-[11px] text-[#a197c4]/70">
-                  <Music2 size={11} className="text-[#a855f7]" />
-                  {t.audioNote}
+                  <Music2 size={11} className="text-[#a855f7]" />{t.audioNote}
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 px-4 pb-2 sm:grid-cols-4">
-                  <DownloadButton
-                    icon={Download}
-                    label={t.dlVideoHD}
-                    tone="primary"
-                    onClick={() => mockDownload("tikfetch-mock-video-hd.txt", "TikFetch mockup — placeholder for HD video file (no real video attached).", "text/plain")}
-                  />
-                  <DownloadButton
-                    icon={Download}
-                    label={t.dlVideoSD}
-                    tone="secondary"
-                    onClick={() => mockDownload("tikfetch-mock-video-sd.txt", "TikFetch mockup — placeholder for SD video file (no real video attached).", "text/plain")}
-                  />
-                  <DownloadButton
-                    icon={Music2}
-                    label={t.dlAudio}
-                    tone="secondary"
-                    onClick={() => mockDownload("tikfetch-mock-audio.txt", "TikFetch mockup — placeholder for MP3 audio file (no real audio attached).", "text/plain")}
-                  />
-                  <DownloadButton
-                    icon={ImageIcon}
-                    label={t.dlCover}
-                    tone="secondary"
-                    onClick={() => mockDownload("tikfetch-mock-cover.txt", "TikFetch mockup — placeholder for cover image file (no real image attached).", "text/plain")}
-                  />
+                  <DownloadButton icon={Download} label={t.dlVideoHD} tone="primary" disabled={!result.videoHD} onClick={() => openDownload(result.videoHD, "hd")} />
+                  <DownloadButton icon={Download} label={t.dlVideoSD} tone="secondary" disabled={!result.videoSD} onClick={() => openDownload(result.videoSD, "sd")} />
+                  <DownloadButton icon={Music2} label={t.dlAudio} tone="secondary" disabled={!result.audio} onClick={() => openDownload(result.audio, "audio")} />
+                  <DownloadButton icon={ImageIcon} label={t.dlCover} tone="secondary" disabled={!result.cover} onClick={() => openDownload(result.cover, "cover")} />
                 </div>
 
                 <div className="px-4 pb-4">
-                  <button
-                    type="button"
-                    onClick={handleShareLink}
-                    className="flex w-full items-center justify-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-transparent py-2.5 text-xs font-medium text-[#a197c4] transition-colors hover:border-[#8b5cf6]/35 hover:text-white"
-                  >
-                    <Share2 size={13} />
-                    {t.share}
+                  <button type="button" onClick={handleShareLink}
+                    className="flex w-full items-center justify-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-transparent py-2.5 text-xs font-medium text-[#a197c4] transition-colors hover:border-[#8b5cf6]/35 hover:text-white">
+                    <Share2 size={13} />{t.share}
                   </button>
                 </div>
               </section>
             )}
 
-            {/* Error state */}
             {view === "error" && (
               <div className="mt-6 flex items-start gap-3 rounded-3xl border border-red-400/20 bg-[#1d1735]/60 p-4 shadow-[0_8px_30px_-10px_rgba(239,68,68,0.35)] backdrop-blur-xl">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/15">
                   <AlertTriangle size={16} className="text-red-300" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">{errorKind === "invalid" ? t.invalidLinkTitle : t.errorTitle}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-[#a197c4]">{errorKind === "invalid" ? t.invalidLinkBody : t.errorBody}</p>
+                  <p className="text-sm font-medium text-white">
+                    {errorKind === "invalid" ? t.invalidLinkTitle : errorKind === "api" ? t.apiErrorTitle : t.errorTitle}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-[#a197c4]">
+                    {errorKind === "invalid" ? t.invalidLinkBody : errorKind === "api" ? t.apiErrorBody : t.errorBody}
+                  </p>
                 </div>
               </div>
             )}
 
-            {/* Ad slot — bottom */}
-            <div className="mt-8">
-              <AdSlot label={t.bottomBanner} size="300×250" />
-            </div>
+            <div className="mt-8"><AdSlot label={t.bottomBanner} size="300×250" /></div>
           </div>
         </main>
 
-        {/* Footer */}
         <footer className="border-t border-[#8b5cf6]/10 px-5 py-8 md:px-8">
           <div className="mx-auto max-w-md md:max-w-2xl lg:max-w-4xl">
             <div className="flex items-center gap-2">
@@ -1291,48 +821,27 @@ function TikFetchApp() {
               <span className="font-display text-sm font-semibold text-white">TikFetch</span>
             </div>
             <p className="mt-2 text-xs text-[#a197c4]/70">{t.footerTagline}</p>
-
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[#a197c4]">
               {t.footerLinks.map((link, i) => (
-                <button
-                  key={link}
-                  type="button"
-                  onClick={() => setActiveModal(modalKeys[i])}
-                  className="transition-colors hover:text-white"
-                >
-                  {link}
-                </button>
+                <button key={link} type="button" onClick={() => setActiveModal(modalKeys[i])} className="transition-colors hover:text-white">{link}</button>
               ))}
             </div>
-
             <p className="mt-4 text-[11px] leading-relaxed text-[#a197c4]/50">{t.disclaimer}</p>
           </div>
         </footer>
       </div>
 
       {langModalOpen && (
-        <LanguageModal
-          lang={lang}
-          onSelect={(code) => {
-            setLang(code);
-            setLangModalOpen(false);
-          }}
-          onClose={() => setLangModalOpen(false)}
-          labels={{ title: lang === "en" ? "Language" : "اللغة", close: t.close }}
-        />
+        <LanguageModal lang={lang} onSelect={(code) => { setLang(code); setLangModalOpen(false); }} onClose={() => setLangModalOpen(false)}
+          labels={{ title: lang === "en" ? "Language" : "اللغة", close: t.close }} />
       )}
 
       {activeModal && (
-        <Modal
-          title={t.modals[activeModal].title}
-          body={t.modals[activeModal].body}
-          closeLabel={t.close}
-          onClose={() => setActiveModal(null)}
-        />
+        <Modal title={t.modals[activeModal].title} body={t.modals[activeModal].body} closeLabel={t.close} onClose={() => setActiveModal(null)} />
       )}
 
       {previewOpen && (
-        <PreviewModal onClose={() => setPreviewOpen(false)} labels={{ title: t.previewTitle, hint: t.previewHint, close: t.close }} />
+        <PreviewModal cover={result && result.cover} onClose={() => setPreviewOpen(false)} labels={{ title: t.previewTitle, hint: t.previewHint, close: t.close }} />
       )}
 
       {toast && <Toast message={toast} />}
@@ -1342,7 +851,5 @@ function TikFetchApp() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(<TikFetchApp />);
 </script>
-  <script src="https://motionless-bus.com/bJ3pVk0JP.3vphvfbHmoVZj/ZjD/0L3YMjjtQg0UOBD_kS3tL/TUcayKNvDcQ/5/MmD"></script>
-
 </body>
 </html>
