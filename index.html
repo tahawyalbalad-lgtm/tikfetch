@@ -523,7 +523,9 @@ function TikFetchApp() {
   const sound = useUiSound(soundEnabled);
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
-  const isValidTikTokUrl = (value) => /^(https?:\/\/)?([\w-]+\.)?tiktok\.com\//i.test(value.trim());
+  
+  // ✅ تم تعديل هذا السطر ليقبل أي رابط يحتوي على tiktok.com (بما في ذلك vt.tiktok.com و vm.tiktok.com)
+  const isValidTikTokUrl = (value) => /tiktok\.com/i.test(value.trim());
 
   useEffect(() => {
     document.documentElement.lang = lang;
