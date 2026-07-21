@@ -613,7 +613,6 @@ function TikFetchApp() {
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
   
-  // ✅ FIXED: Simple and reliable URL validation
   const isValidTikTokUrl = (value) => {
     if (!value || typeof value !== 'string') return false;
     const trimmed = value.trim().toLowerCase();
@@ -674,13 +673,11 @@ function TikFetchApp() {
       return;
     }
 
-    // ✅ FIXED: Normalize URL
     let targetUrl = trimmed;
     if (!/^https?:\/\//i.test(targetUrl)) {
       targetUrl = 'https://' + targetUrl;
     }
 
-    // ✅ FIXED: Validate with simple includes()
     if (!isValidTikTokUrl(targetUrl)) {
       setErrorKind("invalid");
       sound.error();
@@ -699,23 +696,26 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(targetUrl)}`;
-      const options = {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key': '86535387acmshd93b285b5738dabp1fe839jsnaa99e20b9af0',
-          'x-rapidapi-host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
-        }
-      };
-
-      const response = await fetch(apiUrl, options);
+      // ✅ NEW API: TikWM (Free & No Key Required)
+      const apiUrl = `https://api.tikwm.com/api/?url=${encodeURIComponent(targetUrl)}&hd=1`;
+      
+      const response = await fetch(apiUrl);
       const data = await response.json();
 
       window.clearInterval(progressTimer.current);
       setProgress(100);
 
-      if (data && (data.video || data.video_url_no_watermark || data.data)) {
-        setVideoData(data);
+      if (data.code === 0 && data.data) {
+        // Convert TikWM response to our format
+        setVideoData({
+          video: data.data.play,
+          video_watermark: data.data.wmplay,
+          music: data.data.music,
+          cover: data.data.cover,
+          title: data.data.title,
+          author: data.data.author?.unique_id || 'user',
+          duration: data.data.duration
+        });
         saveToHistory(targetUrl);
         setView("result");
         sound.success();
@@ -788,9 +788,9 @@ function TikFetchApp() {
 
   const isRTL = t.dir === "rtl";
 
-  const videoUrl = videoData?.video || videoData?.video_url_no_watermark || videoData?.data?.play || videoData?.link;
-  const audioUrl = videoData?.music || videoData?.audio || videoData?.data?.music;
-  const coverUrl = videoData?.cover || videoData?.data?.cover;
+  const videoUrl = videoData?.video;
+  const audioUrl = videoData?.music;
+  const coverUrl = videoData?.cover;
 
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
@@ -909,10 +909,30 @@ function TikFetchApp() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 px-4 pb-2 sm:grid-cols-4">
-                  <DownloadButton icon={Download} label={t.dlVideoHD} tone="primary" onClick={() => handleRealDownload(videoUrl, "tiktok-video-hd.mp4")} />
-                  <DownloadButton icon={Download} label={t.dlVideoSD} tone="secondary" onClick={() => handleRealDownload(videoUrl, "tiktok-video-sd.mp4")} />
-                  <DownloadButton icon={Music2} label={t.dlAudio} tone="secondary" onClick={() => handleRealDownload(audioUrl, "tiktok-audio.mp3")} />
-                  <DownloadButton icon={ImageIcon} label={t.dlCover} tone="secondary" onClick={() => handleRealDownload(coverUrl, "tiktok-cover.jpg")} />
+                  <DownloadButton
+                    icon={Download}
+                    label={t.dlVideoHD}
+                    tone="primary"
+                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-hd.mp4")}
+                  />
+                  <DownloadButton
+                    icon={Download}
+                    label={t.dlVideoSD}
+                    tone="secondary"
+                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-sd.mp4")} 
+                  />
+                  <DownloadButton
+                    icon={Music2}
+                    label={t.dlAudio}
+                    tone="secondary"
+                    onClick={() => handleRealDownload(audioUrl, "tiktok-audio.mp3")}
+                  />
+                  <DownloadButton
+                    icon={ImageIcon}
+                    label={t.dlCover}
+                    tone="secondary"
+                    onClick={() => handleRealDownload(coverUrl, "tiktok-cover.jpg")}
+                  />
                 </div>
 
                 <div className="px-4 pb-4">
