@@ -159,8 +159,8 @@ const STRINGS = {
     seoDescription: "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
     eyebrow: "No watermark · No signup · No app",
     heroTitle: "Paste a link.\nGet the clip.",
-    heroSub: "Drop in any TikTok link and pull the video, the audio, or the cover — clean, fast, and without the logo stamped on top.",
-    placeholder: "https://www.tiktok.com/@user/video/...",
+    heroSub: "Drop in any TikTok link (including short vt.tiktok.com links) and pull the video, the audio, or the cover — clean, fast, and without the logo stamped on top.",
+    placeholder: "https://www.tiktok.com/@user/video/... or vt.tiktok.com/...",
     paste: "Paste",
     fetch: "Fetch video",
     fetching: "Fetching…",
@@ -203,7 +203,7 @@ const STRINGS = {
     muteLabel: "Mute sounds",
     unmuteLabel: "Unmute sounds",
     invalidLinkTitle: "That doesn't look like a TikTok link",
-    invalidLinkBody: "Paste a full TikTok video URL (tiktok.com/@user/video/... or a vm.tiktok.com short link) and try again.",
+    invalidLinkBody: "Paste a valid TikTok URL (e.g., tiktok.com/@user/video/... or short links like vt.tiktok.com / vm.tiktok.com) and try again.",
     modals: {
       tos: { title: "Terms of Service", body: ["Placeholder copy for review purposes only."] },
       privacy: { title: "Privacy Policy", body: ["Placeholder copy for review purposes only."] },
@@ -216,8 +216,8 @@ const STRINGS = {
     seoDescription: "أداة مجانية لتنزيل فيديوهات تيك توك بجودة عالية أو استخراج الصوت MP3 أو صورة الغلاف — بدون علامة مائية، بدون تسجيل، وبدون تطبيق.",
     eyebrow: "بدون علامة مائية · بدون تسجيل · بدون تطبيق",
     heroTitle: "الصق الرابط.\nاحصل على المقطع.",
-    heroSub: "أدخل أي رابط تيك توك واحصل على الفيديو أو الصوت أو صورة الغلاف — بسرعة وبدون شعار الموقع.",
-    placeholder: "https://www.tiktok.com/@user/video/...",
+    heroSub: "أدخل أي رابط تيك توك (بما في ذلك الروابط المختصرة vt.tiktok.com) واحصل على الفيديو أو الصوت أو صورة الغلاف — بسرعة وبدون شعار.",
+    placeholder: "https://www.tiktok.com/@user/video/... أو vt.tiktok.com/...",
     paste: "لصق",
     fetch: "جلب الفيديو",
     fetching: "جاري المعالجة…",
@@ -259,8 +259,8 @@ const STRINGS = {
     audioNote: "MP3 عالي الجودة · يعمل على جميع الأجهزة",
     muteLabel: "كتم الأصوات",
     unmuteLabel: "تفعيل الأصوات",
-    invalidLinkTitle: "هذا لا يبدو رابط تيك توك",
-    invalidLinkBody: "الصق رابط فيديو تيك توك كامل (tiktok.com/@user/video/... أو رابط مختصر من vm.tiktok.com) وحاول مرة أخرى.",
+    invalidLinkTitle: "هذا لا يبدو رابط تيك توك صحيح",
+    invalidLinkBody: "الصق رابط تيك توك صالح (مثل tiktok.com/@user/video/... أو الروابط المختصرة vt.tiktok.com / vm.tiktok.com) وحاول مرة أخرى.",
     modals: {
       tos: { title: "شروط الخدمة", body: ["نص مبدئي لأغراض المراجعة فقط."] },
       privacy: { title: "سياسة الخصوصية", body: ["نص مبدئي لأغراض المراجعة فقط."] },
@@ -516,7 +516,6 @@ function TikFetchApp() {
   const [previewOpen, setPreviewOpen] = useState(false);
   const [errorKind, setErrorKind] = useState("empty");
   
-  // ✅ إضافة جديدة: حفظ بيانات الفيديو القادمة من الـ API
   const [videoData, setVideoData] = useState(null);
   
   const progressTimer = useRef(null);
@@ -524,8 +523,11 @@ function TikFetchApp() {
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
   
-  // ✅ تم تعديل هذا السطر ليقبل أي رابط يحتوي على tiktok.com (بما في ذلك vt.tiktok.com و vm.tiktok.com)
-  const isValidTikTokUrl = (value) => /tiktok\.com/i.test(value.trim());
+  // ✅ تم تحسين التحقق ليقبل صراحةً جميع صيغ روابط تيك توك (vt, vm, www, m)
+  const isValidTikTokUrl = (value) => {
+    const url = value.trim();
+    return /(?:https?:\/\/)?(?:www\.|vt\.|vm\.|m\.)?tiktok\.com\//i.test(url);
+  };
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -550,7 +552,8 @@ function TikFetchApp() {
         const status = await navigator.permissions.query({ name: "clipboard-read" });
         if (status.state !== "granted" || cancelled) return;
         const text = await navigator.clipboard.readText();
-        if (!cancelled && text && /tiktok\.com/i.test(text)) setUrl(text.trim());
+        // ✅ استخدام نفس دالة التحقق الموسعة هنا
+        if (!cancelled && text && isValidTikTokUrl(text)) setUrl(text.trim());
       } catch {}
     })();
     return () => { cancelled = true; };
@@ -571,7 +574,6 @@ function TikFetchApp() {
     } catch { showToast(t.pasteFail); }
   };
 
-  // ✅ تم تعديل هذه الدالة لتتصل بالـ API الحقيقي
   const handleFetch = async () => {
     const trimmed = url.trim();
     if (!trimmed) {
@@ -581,7 +583,15 @@ function TikFetchApp() {
       setView("error");
       return;
     }
-    if (!isValidTikTokUrl(trimmed)) {
+
+    // ✅ 1. تطبيع الرابط: إضافة https:// تلقائياً إذا لم تكن موجودة (حل جذري لمشكلة رفض الروابط المختصرة)
+    let targetUrl = trimmed;
+    if (!/^https?:\/\//i.test(targetUrl)) {
+      targetUrl = 'https://' + targetUrl;
+    }
+
+    // ✅ 2. التحقق من صحة الرابط بالصيغة الموسعة
+    if (!isValidTikTokUrl(targetUrl)) {
       setErrorKind("invalid");
       sound.error();
       setView("error");
@@ -591,7 +601,7 @@ function TikFetchApp() {
     sound.click();
     setView("loading");
     setProgress(0);
-    setVideoData(null); // مسح البيانات القديمة
+    setVideoData(null);
 
     window.clearInterval(progressTimer.current);
     progressTimer.current = window.setInterval(() => {
@@ -599,29 +609,46 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(trimmed)}`;
+      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(targetUrl)}`;
       const options = {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': '86535387acmshd93b285b5738dabp1fe839jsnaa99e20b9af0', // ⚠️ قم بتغيير هذا المفتاح بعد التأكد من عمل الموقع
+          'x-rapidapi-key': '86535387acmshd93b285b5738dabp1fe839jsnaa99e20b9af0',
           'x-rapidapi-host': 'tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com'
         }
       };
 
       const response = await fetch(apiUrl, options);
+      
+      if (!response.ok) {
+        throw new Error(`API responded with status: ${response.status}`);
+      }
+
       const data = await response.json();
 
       window.clearInterval(progressTimer.current);
       setProgress(100);
 
-      // التحقق من نجاح الاستجابة (تختلف أسماء الحقول قليلاً حسب الـ API، لذا نتحقق من عدة احتمالات)
-      if (data && (data.video || data.video_url_no_watermark || data.data)) {
-        setVideoData(data);
-        saveToHistory(trimmed);
+      // ✅ 3. مرونة أعلى في استخراج البيانات لمطابقة هياكل JSON المختلفة التي قد ترجعها الـ API
+      const extractedVideo = data.video || data.video_url_no_watermark || data?.data?.play || data?.data?.video || data.link;
+      const extractedAudio = data.music || data.audio || data?.data?.music;
+      const extractedCover = data.cover || data?.data?.cover;
+
+      if (extractedVideo || extractedAudio || extractedCover) {
+        setVideoData({
+          ...data,
+          video: extractedVideo,
+          music: extractedAudio,
+          cover: extractedCover,
+          title: data.title || data.desc || "TikTok Video",
+          author: data.author || data.nickname || "@creator"
+        });
+        saveToHistory(targetUrl);
         setView("result");
         sound.success();
       } else {
-        throw new Error("Invalid response from API");
+        console.error("API returned no usable media:", data);
+        throw new Error("No media found in API response");
       }
     } catch (error) {
       window.clearInterval(progressTimer.current);
@@ -672,14 +699,12 @@ function TikFetchApp() {
     }
   };
 
-  // ✅ دالة التحميل الحقيقية الجديدة
   const handleRealDownload = (downloadUrl, filename) => {
     if (!downloadUrl) {
       showToast(lang === 'ar' ? "رابط التحميل غير متاح حالياً" : "Download link unavailable");
       return;
     }
     sound.click();
-    // نستخدم target="_blank" لضمان فتح الرابط في نافذة جديدة وتجاوز مشاكل CORS في المتصفحات
     const a = document.createElement('a');
     a.href = downloadUrl;
     a.target = '_blank';
@@ -691,10 +716,9 @@ function TikFetchApp() {
 
   const isRTL = t.dir === "rtl";
 
-  // ✅ استخراج الروابط من بيانات الـ API بمرونة (لأن الـ APIs تختلف في تسمية الحقول)
-  const videoUrl = videoData?.video || videoData?.video_url_no_watermark || videoData?.data?.play || videoData?.link;
-  const audioUrl = videoData?.music || videoData?.audio || videoData?.data?.music;
-  const coverUrl = videoData?.cover || videoData?.data?.cover;
+  const videoUrl = videoData?.video;
+  const audioUrl = videoData?.music;
+  const coverUrl = videoData?.cover;
 
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
