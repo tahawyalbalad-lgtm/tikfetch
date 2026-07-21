@@ -3,31 +3,31 @@
 <head>
 <meta name="565482b5318527edb53e82f35fd8b0444cb9e89c" content="565482b5318527edb53e82f35fd8b0444cb9e89c" />
 
-<!-- ============ SEO META TAGS ============ -->
-<title>TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)</title>
-<meta name="description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
-<meta name="keywords" content="TikTok downloader, no watermark, HD video saver, MP3 converter, tiktok to mp4, tiktok to mp3" />
+<!-- ============ SEO META TAGS (Optimized) ============ -->
+<title>TikFetch — Download TikTok Videos Without Watermark (HD & MP3)</title>
+<meta name="description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required. Fast and easy TikTok to MP4 converter." />
+<meta name="keywords" content="TikTok downloader, TikTok video without watermark, TikTok to MP3, TikTok to MP4, download TikTok videos" />
 <link rel="canonical" href="https://tikfetch.example.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)" />
-<meta property="og:description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
+<meta property="og:title" content="TikFetch — Download TikTok Videos Without Watermark (HD & MP3)" />
+<meta property="og:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required." />
 <meta property="og:url" content="https://tikfetch.example.com" />
 <meta property="og:site_name" content="TikFetch" />
 <meta property="og:image" content="https://tikfetch.example.com/og-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="TikFetch" />
+<meta property="og:image:alt" content="TikFetch - TikTok Downloader" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)" />
-<meta name="twitter:description" content="Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required." />
+<meta name="twitter:title" content="TikFetch — Download TikTok Videos Without Watermark" />
+<meta name="twitter:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark." />
 <meta name="twitter:image" content="https://tikfetch.example.com/og-cover.jpg" />
 
-<!-- JSON-LD structured data -->
+<!-- JSON-LD structured data with FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -105,22 +105,49 @@
 
   .font-\[var\(--font-ar\)\] { font-family: var(--font-ar); }
   .font-\[var\(--font-en\)\] { font-family: var(--font-en); }
+  
+  /* FAQ Accordion Styles */
+  .faq-item {
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    background: rgba(29, 23, 53, 0.4);
+    transition: all 0.3s ease;
+  }
+  .faq-item:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(29, 23, 53, 0.6);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  .faq-answer.open {
+    max-height: 500px;
+    padding-top: 12px;
+  }
+  .faq-icon {
+    transition: transform 0.3s ease;
+  }
+  .faq-icon.rotate {
+    transform: rotate(180deg);
+  }
 </style>
 </head>
 <body>
 <div id="root"></div>
 
-<!-- ============ REACT + REACTDOM (classic UMD builds, no ES modules / import maps) ============ -->
+<!-- ============ REACT + REACTDOM ============ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
 
-<!-- Babel standalone: transpiles JSX in the classic script below -->
+<!-- Babel standalone -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js" crossorigin></script>
 
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
-// ---- Minimal inline icon set ----
+// ---- Icons ----
 function makeIcon(paths) {
   return function Icon({ size = 24, className = "", strokeWidth = 2, style }) {
     return (
@@ -151,12 +178,14 @@ const Trash2 = makeIcon(<><polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 
 const Eye = makeIcon(<><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" /><circle cx="12" cy="12" r="3" /></>);
 const Volume2 = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /></>);
 const VolumeX = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></>);
+const ChevronDown = makeIcon(<polyline points="6 9 12 15 18 9" />);
+const HelpCircle = makeIcon(<><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" /></>);
 
 const STRINGS = {
   en: {
     dir: "ltr",
-    seoTitle: "TikFetch — TikTok Downloader, No Watermark (HD Video & MP3)",
-    seoDescription: "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
+    seoTitle: "TikFetch — Download TikTok Videos Without Watermark (HD & MP3)",
+    seoDescription: "Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required.",
     eyebrow: "No watermark · No signup · No app",
     heroTitle: "Paste a link.\nGet the clip.",
     heroSub: "Drop in any TikTok link (including short vt.tiktok.com links) and pull the video, the audio, or the cover — clean, fast, and without the logo stamped on top.",
@@ -209,6 +238,63 @@ const STRINGS = {
       privacy: { title: "Privacy Policy", body: ["Placeholder copy for review purposes only."] },
       dmca: { title: "DMCA & Takedown Policy", body: ["Placeholder copy for review purposes only."] },
     },
+    // FAQ Section
+    faqTitle: "Frequently Asked Questions",
+    faqSubtitle: "Everything you need to know about downloading TikTok videos",
+    faq: [
+      {
+        q: "How do I download TikTok videos without watermark?",
+        a: "Simply copy the TikTok video link, paste it into TikFetch, and click 'Fetch video'. Our tool automatically removes the TikTok watermark and lets you download the video in HD quality. It works with all public TikTok videos."
+      },
+      {
+        q: "Is TikFetch free to use?",
+        a: "Yes, TikFetch is completely free. You can download unlimited TikTok videos, extract MP3 audio, and save cover images without any cost. No signup or registration required."
+      },
+      {
+        q: "How can I save TikTok audio as MP3?",
+        a: "After pasting the TikTok link and fetching the video, click the 'Audio · MP3' button. TikFetch will extract the high-quality audio from the video and download it as an MP3 file that works on any device."
+      },
+      {
+        q: "Does TikFetch work with short TikTok links (vt.tiktok.com)?",
+        a: "Yes! TikFetch supports all TikTok URL formats including short links (vt.tiktok.com), mobile links (vm.tiktok.com), and full URLs (tiktok.com/@user/video/...). Just paste any TikTok link and we'll handle the rest."
+      },
+      {
+        q: "Can I download TikTok videos on my phone?",
+        a: "Absolutely. TikFetch works on all devices — iPhone, Android, tablets, and desktop computers. No app installation needed. Just open the website in your browser and start downloading."
+      },
+      {
+        q: "What video quality can I download?",
+        a: "TikFetch offers both HD (high definition) and SD (standard definition) video downloads. HD quality preserves the original resolution of the TikTok video, while SD provides a smaller file size for faster downloads."
+      },
+      {
+        q: "Is it safe to use TikTok downloaders?",
+        a: "TikFetch is safe and secure. We don't store your videos or personal data. All processing happens in real-time, and we don't require any login or personal information. Your privacy is protected."
+      },
+      {
+        q: "Why can't I download some TikTok videos?",
+        a: "TikFetch can only download public TikTok videos. If a video is private, deleted, or restricted by the creator's privacy settings, it cannot be downloaded. Make sure the video is publicly accessible."
+      },
+      {
+        q: "How do I download TikTok cover images?",
+        a: "After fetching a TikTok video, click the 'Cover · JPG' button to download the video's thumbnail image. This is useful for saving video previews or creating content collections."
+      },
+      {
+        q: "Do I need to install any software or app?",
+        a: "No installation required! TikFetch is a web-based tool that works directly in your browser. There's no need to download any software, apps, or browser extensions. Just visit the website and start downloading."
+      },
+      {
+        q: "Can I download multiple TikTok videos at once?",
+        a: "Currently, TikFetch processes one video at a time. Simply paste a link, download the video, then paste the next link. The process is fast, so you can download multiple videos in quick succession."
+      },
+      {
+        q: "Does TikFetch work with TikTok Live videos?",
+        a: "TikFetch is designed for regular TikTok videos. Live stream videos may not be available for download as they are often temporary content. For best results, use links to published TikTok videos."
+      },
+      {
+        q: "What's the difference between HD and SD downloads?",
+        a: "HD (High Definition) downloads provide the best video quality with higher resolution and larger file sizes. SD (Standard Definition) offers good quality with smaller file sizes, perfect for saving storage space or faster downloads on slower connections."
+      }
+    ]
   },
   ar: {
     dir: "rtl",
@@ -266,6 +352,63 @@ const STRINGS = {
       privacy: { title: "سياسة الخصوصية", body: ["نص مبدئي لأغراض المراجعة فقط."] },
       dmca: { title: "سياسة DMCA وطلبات الإزالة", body: ["نص مبدئي لأغراض المراجعة فقط."] },
     },
+    // FAQ Section
+    faqTitle: "الأسئلة الشائعة",
+    faqSubtitle: "كل ما تحتاج معرفته عن تنزيل فيديوهات تيك توك",
+    faq: [
+      {
+        q: "كيف أحمل فيديوهات تيك توك بدون علامة مائية؟",
+        a: "انسخ رابط فيديو تيك توك، الصقه في TikFetch، واضغط على 'جلب الفيديو'. أداتنا تزيل علامة تيك توك المائية تلقائياً وتتيح لك تنزيل الفيديو بجودة عالية. يعمل مع جميع فيديوهات تيك توك العامة."
+      },
+      {
+        q: "هل موقع TikFetch مجاني؟",
+        a: "نعم، TikFetch مجاني تماماً. يمكنك تنزيل عدد غير محدود من فيديوهات تيك توك، واستخراج الصوت بصيغة MP3، وحفظ صور الغلاف بدون أي تكلفة. لا حاجة للتسجيل أو إنشاء حساب."
+      },
+      {
+        q: "كيف أحفظ صوت تيك توك كملف MP3؟",
+        a: "بعد لصق رابط تيك توك وجلب الفيديو، اضغط على زر 'صوت · MP3'. سيقوم TikFetch باستخراج الصوت عالي الجودة من الفيديو وتنزيله كملف MP3 يعمل على أي جهاز."
+      },
+      {
+        q: "هل يعمل TikFetch مع روابط تيك توك المختصرة (vt.tiktok.com)؟",
+        a: "نعم! TikFetch يدعم جميع صيغ روابط تيك توك بما في ذلك الروابط المختصرة (vt.tiktok.com)، وروابط الموبايل (vm.tiktok.com)، والروابط الكاملة (tiktok.com/@user/video/...). فقط الصق أي رابط وسنتولى الباقي."
+      },
+      {
+        q: "هل يمكنني تنزيل فيديوهات تيك توك على هاتفي؟",
+        a: "بالتأكيد. TikFetch يعمل على جميع الأجهزة — آيفون، أندرويد، أجهزة لوحية، وكمبيوترات. لا حاجة لتثبيت أي تطبيق. فقط افتح الموقع في متصفحك وابدأ التنزيل."
+      },
+      {
+        q: "ما جودة الفيديو التي يمكنني تنزيلها؟",
+        a: "يقدم TikFetch تنزيلات بجودة عالية (HD) وجودة قياسية (SD). الجودة العالية تحافظ على الدقة الأصلية لفيديو تيك توك، بينما الجودة القياسية توفر حجم ملف أصغر لتنزيلات أسرع."
+      },
+      {
+        q: "هل استخدام أدوات تنزيل تيك توك آمن؟",
+        a: "TikFetch آمن ومأمون. لا نخزن فيديوهاتك أو بياناتك الشخصية. جميع المعالجة تتم في الوقت الفعلي، ولا نطلب أي تسجيل دخول أو معلومات شخصية. خصوصيتك محمية."
+      },
+      {
+        q: "لماذا لا أستطيع تنزيل بعض فيديوهات تيك توك؟",
+        a: "يمكن لـ TikFetch تنزيل فيديوهات تيك توك العامة فقط. إذا كان الفيديو خاصاً أو محذوفاً أو مقيداً بإعدادات الخصوصية، فلا يمكن تنزيله. تأكد من أن الفيديو متاح للعامة."
+      },
+      {
+        q: "كيف أنزل صورة الغلاف لفيديو تيك توك؟",
+        a: "بعد جلب فيديو تيك توك، اضغط على زر 'الغلاف · JPG' لتنزيل الصورة المصغرة للفيديو. هذا مفيد لحفظ معاينات الفيديو أو إنشاء مجموعات محتوى."
+      },
+      {
+        q: "هل أحتاج لتثبيت أي برنامج أو تطبيق؟",
+        a: "لا حاجة للتثبيت! TikFetch أداة تعمل عبر الويب مباشرة في متصفحك. لا حاجة لتحميل أي برامج أو تطبيقات أو إضافات للمتصفح. فقط زر الموقع وابدأ التنزيل."
+      },
+      {
+        q: "هل يمكنني تنزيل عدة فيديوهات تيك توك دفعة واحدة؟",
+        a: "حالياً، TikFetch يعالج فيديو واحد في كل مرة. فقط الصق رابطاً، نزّل الفيديو، ثم الصق الرابط التالي. العملية سريعة، لذا يمكنك تنزيل عدة فيديوهات متتالية بسرعة."
+      },
+      {
+        q: "هل يعمل TikFetch مع فيديوهات البث المباشر على تيك توك؟",
+        a: "TikFetch مصمم لفيديوهات تيك توك العادية. فيديوهات البث المباشر قد لا تكون متاحة للتنزيل لأنها محتوى مؤقت غالباً. للحصول على أفضل النتائج، استخدم روابط فيديوهات تيك توك المنشورة."
+      },
+      {
+        q: "ما الفرق بين التنزيل بجودة HD و SD؟",
+        a: "التنزيل بجودة عالية (HD) يوفر أفضل جودة فيديو بدقة أعلى وأحجام ملفات أكبر. الجودة القياسية (SD) توفر جودة جيدة بأحجام ملفات أصغر، مثالية لتوفير مساحة التخزين أو التنزيلات الأسرع على الاتصالات البطيئة."
+      }
+    ]
   },
 };
 
@@ -503,9 +646,49 @@ function PreviewModal({ onClose, labels }) {
   );
 }
 
+// ✅ FAQ Component with Accordion
+function FAQSection({ faq, title, subtitle }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="mt-16 mb-8">
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/50 px-4 py-2 mb-4">
+          <HelpCircle size={16} className="text-[#a855f7]" />
+          <span className="text-xs font-medium text-[#c9bdf0]">FAQ</span>
+        </div>
+        <h2 className="font-display text-2xl md:text-3xl font-semibold text-white mb-3">{title}</h2>
+        <p className="text-sm text-[#a197c4] max-w-2xl mx-auto">{subtitle}</p>
+      </div>
+
+      <div className="space-y-3 max-w-3xl mx-auto">
+        {faq.map((item, index) => (
+          <div key={index} className="faq-item">
+            <button
+              type="button"
+              onClick={() => toggleFaq(index)}
+              className="w-full flex items-center justify-between px-5 py-4 text-left"
+            >
+              <h3 className="text-sm md:text-base font-medium text-white pr-4">{item.q}</h3>
+              <ChevronDown size={18} className={`faq-icon shrink-0 text-[#a855f7] ${openIndex === index ? 'rotate' : ''}`} />
+            </button>
+            <div className={`faq-answer px-5 ${openIndex === index ? 'open' : ''}`}>
+              <p className="text-sm leading-relaxed text-[#a197c4] pb-4">{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function TikFetchApp() {
   const [lang, setLang] = useState("en");
-  const [view, setView] = useState("idle"); // idle | loading | result | error
+  const [view, setView] = useState("idle");
   const [activeModal, setActiveModal] = useState(null);
   const [langModalOpen, setLangModalOpen] = useState(false);
   const [url, setUrl] = useState("");
@@ -523,11 +706,7 @@ function TikFetchApp() {
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
   
-  // ✅ تم تحسين التحقق ليقبل صراحةً جميع صيغ روابط تيك توك (vt, vm, www, m)
-  const isValidTikTokUrl = (value) => {
-    const url = value.trim();
-    return /(?:https?:\/\/)?(?:www\.|vt\.|vm\.|m\.)?tiktok\.com\//i.test(url);
-  };
+  const isValidTikTokUrl = (value) => /tiktok\.com/i.test(value.trim());
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -552,8 +731,7 @@ function TikFetchApp() {
         const status = await navigator.permissions.query({ name: "clipboard-read" });
         if (status.state !== "granted" || cancelled) return;
         const text = await navigator.clipboard.readText();
-        // ✅ استخدام نفس دالة التحقق الموسعة هنا
-        if (!cancelled && text && isValidTikTokUrl(text)) setUrl(text.trim());
+        if (!cancelled && text && /tiktok\.com/i.test(text)) setUrl(text.trim());
       } catch {}
     })();
     return () => { cancelled = true; };
@@ -583,15 +761,7 @@ function TikFetchApp() {
       setView("error");
       return;
     }
-
-    // ✅ 1. تطبيع الرابط: إضافة https:// تلقائياً إذا لم تكن موجودة (حل جذري لمشكلة رفض الروابط المختصرة)
-    let targetUrl = trimmed;
-    if (!/^https?:\/\//i.test(targetUrl)) {
-      targetUrl = 'https://' + targetUrl;
-    }
-
-    // ✅ 2. التحقق من صحة الرابط بالصيغة الموسعة
-    if (!isValidTikTokUrl(targetUrl)) {
+    if (!isValidTikTokUrl(trimmed)) {
       setErrorKind("invalid");
       sound.error();
       setView("error");
@@ -609,7 +779,7 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(targetUrl)}`;
+      const apiUrl = `https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/rich_response/index?url=${encodeURIComponent(trimmed)}`;
       const options = {
         method: 'GET',
         headers: {
@@ -619,36 +789,18 @@ function TikFetchApp() {
       };
 
       const response = await fetch(apiUrl, options);
-      
-      if (!response.ok) {
-        throw new Error(`API responded with status: ${response.status}`);
-      }
-
       const data = await response.json();
 
       window.clearInterval(progressTimer.current);
       setProgress(100);
 
-      // ✅ 3. مرونة أعلى في استخراج البيانات لمطابقة هياكل JSON المختلفة التي قد ترجعها الـ API
-      const extractedVideo = data.video || data.video_url_no_watermark || data?.data?.play || data?.data?.video || data.link;
-      const extractedAudio = data.music || data.audio || data?.data?.music;
-      const extractedCover = data.cover || data?.data?.cover;
-
-      if (extractedVideo || extractedAudio || extractedCover) {
-        setVideoData({
-          ...data,
-          video: extractedVideo,
-          music: extractedAudio,
-          cover: extractedCover,
-          title: data.title || data.desc || "TikTok Video",
-          author: data.author || data.nickname || "@creator"
-        });
-        saveToHistory(targetUrl);
+      if (data && (data.video || data.video_url_no_watermark || data.data)) {
+        setVideoData(data);
+        saveToHistory(trimmed);
         setView("result");
         sound.success();
       } else {
-        console.error("API returned no usable media:", data);
-        throw new Error("No media found in API response");
+        throw new Error("Invalid response from API");
       }
     } catch (error) {
       window.clearInterval(progressTimer.current);
@@ -716,9 +868,9 @@ function TikFetchApp() {
 
   const isRTL = t.dir === "rtl";
 
-  const videoUrl = videoData?.video;
-  const audioUrl = videoData?.music;
-  const coverUrl = videoData?.cover;
+  const videoUrl = videoData?.video || videoData?.video_url_no_watermark || videoData?.data?.play || videoData?.link;
+  const audioUrl = videoData?.music || videoData?.audio || videoData?.data?.music;
+  const coverUrl = videoData?.cover || videoData?.data?.cover;
 
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
@@ -882,6 +1034,9 @@ function TikFetchApp() {
                 </div>
               </div>
             )}
+
+            {/* ✅ FAQ Section */}
+            <FAQSection faq={t.faq} title={t.faqTitle} subtitle={t.faqSubtitle} />
 
             <div className="mt-8"><AdSlot label={t.bottomBanner} size="300×250" /></div>
           </div>
