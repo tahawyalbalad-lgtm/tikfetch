@@ -98,7 +98,7 @@
 
   .font-\[var\(--font-ar\)\] { font-family: var(--font-ar); }
   .font-\[var\(--font-en\)\] { font-family: var(--font-en); }
-  
+
   .faq-item {
     border: 1px solid rgba(139, 92, 246, 0.15);
     border-radius: 12px;
@@ -221,6 +221,9 @@ const STRINGS = {
     unmuteLabel: "Unmute sounds",
     invalidLinkTitle: "That doesn't look like a TikTok link",
     invalidLinkBody: "Paste a valid TikTok URL (e.g., tiktok.com/@user/video/... or short links like vt.tiktok.com / vm.tiktok.com) and try again.",
+    downloadStarting: "Preparing your download…",
+    downloadFailed: "Couldn't download that file — please try again.",
+    unavailable: "Not available for this video",
     modals: {
       tos: { title: "Terms of Service", body: ["Placeholder copy for review purposes only."] },
       privacy: { title: "Privacy Policy", body: ["Placeholder copy for review purposes only."] },
@@ -295,6 +298,9 @@ const STRINGS = {
     unmuteLabel: "تفعيل الأصوات",
     invalidLinkTitle: "هذا لا يبدو رابط تيك توك صحيح",
     invalidLinkBody: "الصق رابط تيك توك صالح (مثل tiktok.com/@user/video/... أو الروابط المختصرة vt.tiktok.com / vm.tiktok.com) وحاول مرة أخرى.",
+    downloadStarting: "جارٍ تجهيز التنزيل…",
+    downloadFailed: "تعذّر تنزيل الملف — حاول مرة أخرى.",
+    unavailable: "غير متاح لهذا الفيديو",
     modals: {
       tos: { title: "شروط الخدمة", body: ["نص مبدئي لأغراض المراجعة فقط."] },
       privacy: { title: "سياسة الخصوصية", body: ["نص مبدئي لأغراض المراجعة فقط."] },
@@ -440,14 +446,14 @@ function Toast({ message }) {
   );
 }
 
-function DownloadButton({ icon: Icon, label, tone = "primary", onClick }) {
+function DownloadButton({ icon: Icon, label, tone = "primary", onClick, disabled, loading }) {
   const tones = {
     primary: "bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white shadow-[0_0_24px_-4px_rgba(168,85,247,0.65)] hover:shadow-[0_0_32px_-4px_rgba(168,85,247,0.85)]",
     secondary: "bg-[#271f45] text-[#c9bdf0] border border-[#8b5cf6]/15 hover:bg-[#33285c] hover:text-white",
   };
   return (
-    <button type="button" onClick={onClick} className={`flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium transition-all active:scale-[0.97] ${tones[tone]}`}>
-      <Icon size={16} strokeWidth={2} />
+    <button type="button" onClick={onClick} disabled={disabled} className={`flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium transition-all active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed ${tones[tone]}`}>
+      {loading ? <Loader2 size={16} className="animate-spin" /> : <Icon size={16} strokeWidth={2} />}
       {label}
     </button>
   );
@@ -605,14 +611,14 @@ function TikFetchApp() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [errorKind, setErrorKind] = useState("empty");
-  
   const [videoData, setVideoData] = useState(null);
-  
+  const [downloadingKey, setDownloadingKey] = useState(null);
+
   const progressTimer = useRef(null);
   const sound = useUiSound(soundEnabled);
   const t = STRINGS[lang];
   const modalKeys = ["tos", "privacy", "dmca"];
-  
+
   const isValidTikTokUrl = (value) => {
     if (!value || typeof value !== 'string') return false;
     const trimmed = value.trim().toLowerCase();
@@ -696,9 +702,8 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      // ✅ NEW API: TikWM (Free & No Key Required)
+      // TikWM public API — no key required.
       const apiUrl = `https://api.tikwm.com/api/?url=${encodeURIComponent(targetUrl)}&hd=1`;
-      
       const response = await fetch(apiUrl);
       const data = await response.json();
 
@@ -706,26 +711,31 @@ function TikFetchApp() {
       setProgress(100);
 
       if (data.code === 0 && data.data) {
-        // Convert TikWM response to our format
+        const d = data.data;
+        // hdplay = true HD (no watermark). play = SD/no-watermark fallback.
+        // If hdplay is missing, fall back to play for both so buttons stay usable.
+        const hdSrc = d.hdplay || d.play || null;
+        const sdSrc = d.play || d.hdplay || null;
+
         setVideoData({
-          video: data.data.play,
-          video_watermark: data.data.wmplay,
-          music: data.data.music,
-          cover: data.data.cover,
-          title: data.data.title,
-          author: data.data.author?.unique_id || 'user',
-          duration: data.data.duration
+          videoHD: hdSrc,
+          videoSD: sdSrc,
+          audio: d.music || null,
+          cover: d.cover || d.origin_cover || null,
+          title: d.title || "",
+          author: d.author?.unique_id || d.author?.nickname || "user",
+          duration: d.duration || null,
         });
         saveToHistory(targetUrl);
         setView("result");
         sound.success();
       } else {
-        throw new Error("Invalid response from API");
+        throw new Error(data.msg || "Invalid response from API");
       }
     } catch (error) {
       window.clearInterval(progressTimer.current);
       console.error("Fetch error:", error);
-      setErrorKind("invalid");
+      setErrorKind("api");
       setView("error");
       sound.error();
       showToast(t.errorBody);
@@ -771,25 +781,42 @@ function TikFetchApp() {
     }
   };
 
-  const handleRealDownload = (downloadUrl, filename) => {
-    if (!downloadUrl) {
-      showToast(lang === 'ar' ? "رابط التحميل غير متاح حالياً" : "Download link unavailable");
+  // Real download: goes through /api/download so the server sets the correct
+  // Content-Type + Content-Disposition and the browser saves an actual
+  // .mp4 / .mp3 / .jpg file instead of opening a tab or saving a stray .txt.
+  const handleRealDownload = async (sourceUrl, type, filename) => {
+    if (!sourceUrl) {
+      showToast(t.unavailable);
       return;
     }
     sound.click();
-    const a = document.createElement('a');
-    a.href = downloadUrl;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    setDownloadingKey(type);
+    try {
+      const proxied = `/api/download?url=${encodeURIComponent(sourceUrl)}&type=${encodeURIComponent(type)}`;
+      const res = await fetch(proxied);
+      if (!res.ok) throw new Error(`Download failed (${res.status})`);
+      const blob = await res.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 4000);
+    } catch (err) {
+      console.error("Download error:", err);
+      showToast(t.downloadFailed);
+    } finally {
+      setDownloadingKey(null);
+    }
   };
 
   const isRTL = t.dir === "rtl";
 
-  const videoUrl = videoData?.video;
-  const audioUrl = videoData?.music;
+  const videoHDUrl = videoData?.videoHD;
+  const videoSDUrl = videoData?.videoSD;
+  const audioUrl = videoData?.audio;
   const coverUrl = videoData?.cover;
 
   return (
@@ -881,15 +908,17 @@ function TikFetchApp() {
                 </div>
 
                 <div className="flex gap-3 p-4">
-                  <button type="button" onClick={() => { sound.click(); setPreviewOpen(true); }} aria-label={t.previewCta} className="relative h-24 w-16 shrink-0 overflow-hidden rounded-2xl text-left transition-transform active:scale-95" style={{ background: "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}>
-                    <div className="flex h-full w-full items-center justify-center">
+                  <button type="button" onClick={() => { sound.click(); setPreviewOpen(true); }} aria-label={t.previewCta} className="relative h-24 w-16 shrink-0 overflow-hidden rounded-2xl text-left transition-transform active:scale-95" style={{ background: coverUrl ? `url(${coverUrl}) center/cover no-repeat` : "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}>
+                    <div className="flex h-full w-full items-center justify-center bg-black/20">
                       <div className="flex h-7 w-7 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm">
                         <Play size={12} className="translate-x-[1px] fill-white text-white" />
                       </div>
                     </div>
-                    <div className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-black/60 px-1.5 py-0.5 text-[9px] text-white/80">
-                      <Clock size={9} /> 0:38
-                    </div>
+                    {videoData?.duration ? (
+                      <div className="absolute bottom-1 right-1 flex items-center gap-0.5 rounded-full bg-black/60 px-1.5 py-0.5 text-[9px] text-white/80">
+                        <Clock size={9} /> {videoData.duration}s
+                      </div>
+                    ) : null}
                   </button>
                   <div className="flex min-w-0 flex-col justify-center gap-1.5">
                     <p className="line-clamp-2 text-sm font-medium leading-snug text-white">
@@ -913,25 +942,33 @@ function TikFetchApp() {
                     icon={Download}
                     label={t.dlVideoHD}
                     tone="primary"
-                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-hd.mp4")}
+                    disabled={!videoHDUrl || downloadingKey === "hd"}
+                    loading={downloadingKey === "hd"}
+                    onClick={() => handleRealDownload(videoHDUrl, "hd", "tikfetch-video-hd.mp4")}
                   />
                   <DownloadButton
                     icon={Download}
                     label={t.dlVideoSD}
                     tone="secondary"
-                    onClick={() => handleRealDownload(videoUrl, "tiktok-video-sd.mp4")} 
+                    disabled={!videoSDUrl || downloadingKey === "sd"}
+                    loading={downloadingKey === "sd"}
+                    onClick={() => handleRealDownload(videoSDUrl, "sd", "tikfetch-video-sd.mp4")}
                   />
                   <DownloadButton
                     icon={Music2}
                     label={t.dlAudio}
                     tone="secondary"
-                    onClick={() => handleRealDownload(audioUrl, "tiktok-audio.mp3")}
+                    disabled={!audioUrl || downloadingKey === "audio"}
+                    loading={downloadingKey === "audio"}
+                    onClick={() => handleRealDownload(audioUrl, "audio", "tikfetch-audio.mp3")}
                   />
                   <DownloadButton
                     icon={ImageIcon}
                     label={t.dlCover}
                     tone="secondary"
-                    onClick={() => handleRealDownload(coverUrl, "tiktok-cover.jpg")}
+                    disabled={!coverUrl || downloadingKey === "cover"}
+                    loading={downloadingKey === "cover"}
+                    onClick={() => handleRealDownload(coverUrl, "cover", "tikfetch-cover.jpg")}
                   />
                 </div>
 
