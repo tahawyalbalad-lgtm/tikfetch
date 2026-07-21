@@ -1,0 +1,6 @@
+{
+  "name": "tikfetch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TikFetch — static frontend (TikWM, no key required) + a Vercel serverless download proxy that forces real file downloads instead of .txt files."
+}
