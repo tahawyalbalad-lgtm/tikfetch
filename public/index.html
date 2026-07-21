@@ -702,8 +702,9 @@ function TikFetchApp() {
     }, 150);
 
     try {
-      // TikWM public API — no key required.
-      const apiUrl = `https://api.tikwm.com/api/?url=${encodeURIComponent(targetUrl)}&hd=1`;
+      // Call our own server, which calls TikWM — avoids CORS/blocking issues
+      // that can happen when the browser calls a third-party API directly.
+      const apiUrl = `/api/fetch?url=${encodeURIComponent(targetUrl)}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
 
