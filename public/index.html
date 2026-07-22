@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#120d21" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
 <meta name="565482b5318527edb53e82f35fd8b0444cb9e89c" content="565482b5318527edb53e82f35fd8b0444cb9e89c" />
 
 <title>TikFetch — Download TikTok Videos Without Watermark (HD & MP3)</title>
 <meta name="description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required." />
 <meta name="keywords" content="TikTok downloader, TikTok video without watermark, TikTok to MP3, TikTok to MP4, download TikTok videos" />
-<link rel="canonical" href="https://tikfetch.example.com/" />
+<link rel="canonical" href="https://tikfetch-sigma.vercel.app/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="TikFetch — Download TikTok Videos Without Watermark (HD & MP3)" />
 <meta property="og:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark. No signup required." />
-<meta property="og:url" content="https://tikfetch.example.com" />
+<meta property="og:url" content="https://tikfetch-sigma.vercel.app" />
 <meta property="og:site_name" content="TikFetch" />
-<meta property="og:image" content="https://tikfetch.example.com/og-cover.jpg" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image" content="https://tikfetch-sigma.vercel.app/logo.png" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="2000" />
 <meta property="og:image:alt" content="TikFetch - TikTok Downloader" />
 <meta property="og:locale" content="en_US" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="TikFetch — Download TikTok Videos Without Watermark" />
 <meta name="twitter:description" content="Free TikTok video downloader — save HD videos, MP3 audio, and cover images without watermark." />
-<meta name="twitter:image" content="https://tikfetch.example.com/og-cover.jpg" />
+<meta name="twitter:image" content="https://tikfetch-sigma.vercel.app/logo.png" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "TikFetch",
-  "url": "https://tikfetch.example.com",
+  "url": "https://tikfetch-sigma.vercel.app",
   "description": "Free TikTok downloader — save HD video, MP3 audio, or the cover image with no watermark, no signup, and no app required.",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "All",
@@ -37,7 +44,26 @@
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TikFetch",
+    "url": "https://tikfetch-sigma.vercel.app",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tikfetch-sigma.vercel.app/logo.png"
+    }
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TikFetch",
+  "url": "https://tikfetch-sigma.vercel.app",
+  "logo": "https://tikfetch-sigma.vercel.app/logo.png"
 }
 </script>
 
@@ -61,6 +87,15 @@
     color: #ffffff;
     font-family: var(--font-en);
     min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .safe-top { padding-top: max(env(safe-area-inset-top), 0px); }
+  .safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
+  .safe-x {
+    padding-left: max(env(safe-area-inset-left), 1rem);
+    padding-right: max(env(safe-area-inset-right), 1rem);
   }
 
   html[dir="rtl"], html[dir="rtl"] body {
@@ -74,6 +109,57 @@
       radial-gradient(circle at 15% -5%, rgba(139, 92, 246, 0.2), transparent 45%),
       radial-gradient(circle at 90% 10%, rgba(168, 85, 247, 0.14), transparent 40%),
       radial-gradient(circle at 50% 100%, rgba(139, 92, 246, 0.08), transparent 50%);
+  }
+
+  /* Signature element: a soft glowing arc behind the header, echoing the
+     shape of a TikTok waveform / play-ring. Two layered rings give it depth
+     without adding any new content or sections. */
+  .arc-halo-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .arc-halo,
+  .arc-halo-inner {
+    position: absolute;
+    left: 50%;
+    top: -58vw;
+    width: 150vw;
+    max-width: 920px;
+    aspect-ratio: 2.15 / 1;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .arc-halo {
+    border: 1px solid rgba(196, 181, 253, 0.28);
+    box-shadow:
+      0 0 90px 14px rgba(139, 92, 246, 0.32),
+      inset 0 0 70px rgba(168, 85, 247, 0.16);
+  }
+  .arc-halo-inner {
+    top: -52vw;
+    width: 108vw;
+    max-width: 660px;
+    border: 1px solid rgba(216, 180, 254, 0.4);
+    box-shadow: 0 0 46px 6px rgba(196, 165, 255, 0.4);
+  }
+
+  .card-sheen {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 0 1px rgba(139, 92, 246, 0.02);
+  }
+
+  .btn-sheen {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      inset 0 -10px 16px -8px rgba(0, 0, 0, 0.25),
+      0 0 28px -6px rgba(168, 85, 247, 0.75);
+  }
+  .btn-sheen:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.32),
+      inset 0 -10px 16px -8px rgba(0, 0, 0, 0.2),
+      0 0 38px -4px rgba(168, 85, 247, 0.95);
   }
 
   .glow-focus:focus-within {
@@ -103,11 +189,12 @@
     border: 1px solid rgba(139, 92, 246, 0.15);
     border-radius: 12px;
     background: rgba(29, 23, 53, 0.4);
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
   }
   .faq-item:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(29, 23, 53, 0.6);
+    border-color: rgba(168, 85, 247, 0.4);
+    background: rgba(29, 23, 53, 0.65);
+    box-shadow: 0 8px 24px -12px rgba(139, 92, 246, 0.5);
   }
   .faq-answer {
     max-height: 0;
@@ -168,6 +255,7 @@ const Volume2 = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /
 const VolumeX = makeIcon(<><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></>);
 const ChevronDown = makeIcon(<polyline points="6 9 12 15 18 9" />);
 const HelpCircle = makeIcon(<><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" /></>);
+const Sparkles = makeIcon(<><path d="M12 3v4M12 17v4M3 12h4M17 12h4" /><path d="M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2" /></>);
 
 const STRINGS = {
   en: {
@@ -373,7 +461,7 @@ function AdSlot({ label, size, wide = false }) {
 
 function ResultSkeleton() {
   return (
-    <section className="mt-6 overflow-hidden rounded-3xl border border-[#8b5cf6]/15 bg-[#1d1735]/70 backdrop-blur-xl">
+    <section className="mt-6 overflow-hidden rounded-3xl border border-[#8b5cf6]/15 bg-[#1d1735]/70 backdrop-blur-xl card-sheen">
       <div className="flex items-center justify-between px-4 pt-4">
         <div className="h-3 w-24 animate-pulse rounded-full bg-[#8b5cf6]/20" />
         <div className="h-4 w-16 animate-pulse rounded-full bg-[#8b5cf6]/20" />
@@ -393,13 +481,14 @@ function ResultSkeleton() {
   );
 }
 
-function Modal({ title, body, onClose, closeLabel }) {
+function Modal({ title, body, onClose, closeLabel, playClick }) {
+  const close = () => { if (playClick) playClick(); onClose(); };
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={onClose}>
-      <div onClick={(e) => e.stopPropagation()} className="max-h-[80vh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] p-5 shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={close}>
+      <div onClick={(e) => e.stopPropagation()} className="safe-bottom max-h-[80vh] w-full max-w-md overflow-y-auto rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] p-5 shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-display text-lg font-semibold text-white">{title}</h3>
-          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{closeLabel}</button>
+          <button type="button" onClick={close} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{closeLabel}</button>
         </div>
         <div className="mt-4 space-y-3">
           {body.map((p, i) => (<p key={i} className="text-sm leading-relaxed text-[#a197c4]">{p}</p>))}
@@ -409,21 +498,22 @@ function Modal({ title, body, onClose, closeLabel }) {
   );
 }
 
-function LanguageModal({ lang, onSelect, onClose, labels }) {
+function LanguageModal({ lang, onSelect, onClose, labels, playClick }) {
   const options = [{ code: "en", label: "English" }, { code: "ar", label: "العربية" }];
+  const close = () => { if (playClick) playClick(); onClose(); };
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={onClose}>
-      <div onClick={(e) => e.stopPropagation()} className="w-full max-w-sm overflow-hidden rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-sm sm:items-center" onClick={close}>
+      <div onClick={(e) => e.stopPropagation()} className="safe-bottom w-full max-w-sm overflow-hidden rounded-t-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)] sm:rounded-3xl">
         <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-[#8b5cf6]/25 sm:hidden" />
         <div className="flex items-center justify-between px-5 pt-4">
           <h3 className="font-display text-base font-semibold text-white">{labels.title}</h3>
-          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
+          <button type="button" onClick={close} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
         </div>
         <div className="mt-3 px-3 pb-4">
           {options.map((opt) => {
             const active = lang === opt.code;
             return (
-              <button key={opt.code} type="button" onClick={() => onSelect(opt.code)} className={`flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-sm transition-colors ${active ? "bg-gradient-to-r from-[#8b5cf6]/20 to-[#a855f7]/20 text-white" : "text-[#c9bdf0] hover:bg-[#1d1735]"}`}>
+              <button key={opt.code} type="button" onClick={() => { if (playClick) playClick(); onSelect(opt.code); }} className={`flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-sm transition-colors ${active ? "bg-gradient-to-r from-[#8b5cf6]/20 to-[#a855f7]/20 text-white" : "text-[#c9bdf0] hover:bg-[#1d1735]"}`}>
                 <span className="flex items-center gap-3"><Globe size={15} className={active ? "text-[#a855f7]" : "text-[#a197c4]"} />{opt.label}</span>
                 {active && <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] shadow-[0_0_8px_rgba(168,85,247,0.9)]" />}
               </button>
@@ -448,8 +538,8 @@ function Toast({ message }) {
 
 function DownloadButton({ icon: Icon, label, tone = "primary", onClick, disabled, loading }) {
   const tones = {
-    primary: "bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white shadow-[0_0_24px_-4px_rgba(168,85,247,0.65)] hover:shadow-[0_0_32px_-4px_rgba(168,85,247,0.85)]",
-    secondary: "bg-[#271f45] text-[#c9bdf0] border border-[#8b5cf6]/15 hover:bg-[#33285c] hover:text-white",
+    primary: "bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white btn-sheen",
+    secondary: "bg-[#271f45] text-[#c9bdf0] border border-[#8b5cf6]/15 card-sheen hover:bg-[#33285c] hover:text-white hover:border-[#8b5cf6]/35",
   };
   return (
     <button type="button" onClick={onClick} disabled={disabled} className={`flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-medium transition-all active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed ${tones[tone]}`}>
@@ -477,17 +567,17 @@ function ProgressBar({ progress }) {
   );
 }
 
-function HistoryList({ items, onSelect, onClear, labels }) {
+function HistoryList({ items, onSelect, onClear, labels, playClick }) {
   if (!items.length) return <p className="mt-2 text-xs text-[#a197c4]/50">{labels.empty}</p>;
   return (
     <div className="mt-2 flex flex-col gap-1.5">
       {items.map((item, i) => (
-        <button key={item.ts + i} type="button" onClick={() => onSelect(item.url)} dir="ltr" className="flex items-center gap-2 rounded-xl border border-[#8b5cf6]/10 bg-[#1d1735]/40 px-3 py-2 text-left text-xs text-[#a197c4] transition-colors hover:border-[#8b5cf6]/30 hover:text-white">
+        <button key={item.ts + i} type="button" onClick={() => { if (playClick) playClick(); onSelect(item.url); }} dir="ltr" className="flex items-center gap-2 rounded-xl border border-[#8b5cf6]/10 bg-[#1d1735]/40 px-3 py-2 text-left text-xs text-[#a197c4] transition-colors hover:border-[#8b5cf6]/30 hover:text-white">
           <Link2 size={12} className="shrink-0 text-[#a197c4]/60" />
           <span className="min-w-0 flex-1 truncate">{item.url}</span>
         </button>
       ))}
-      <button type="button" onClick={onClear} className="mt-1 flex w-fit items-center gap-1 self-end text-[11px] text-[#a197c4]/60 transition-colors hover:text-red-300">
+      <button type="button" onClick={() => { if (playClick) playClick(); onClear(); }} className="mt-1 flex w-fit items-center gap-1 self-end text-[11px] text-[#a197c4]/60 transition-colors hover:text-red-300">
         <Trash2 size={11} />{labels.clear}
       </button>
     </div>
@@ -508,39 +598,50 @@ function useUiSound(enabled) {
       return ctxRef.current;
     } catch { return null; }
   };
-  const tone = (freq, start, duration, type = "sine", peakGain = 0.05) => {
+  const tone = (freq, start, duration, type = "sine", peakGain = 0.05, glideTo = null) => {
     const ctx = getCtx();
     if (!ctx) return;
     try {
       const osc = ctx.createOscillator();
+      const filter = ctx.createBiquadFilter();
       const gain = ctx.createGain();
       osc.type = type;
       osc.frequency.value = freq;
+      filter.type = "lowpass";
+      filter.frequency.value = 4200;
+      filter.Q.value = 0.4;
       const t0 = ctx.currentTime + start;
+      if (glideTo) osc.frequency.exponentialRampToValueAtTime(glideTo, t0 + duration);
       gain.gain.setValueAtTime(0, t0);
-      gain.gain.linearRampToValueAtTime(peakGain, t0 + 0.008);
+      gain.gain.linearRampToValueAtTime(peakGain, t0 + 0.012);
       gain.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
-      osc.connect(gain);
+      osc.connect(filter);
+      filter.connect(gain);
       gain.connect(ctx.destination);
       osc.start(t0);
-      osc.stop(t0 + duration + 0.02);
+      osc.stop(t0 + duration + 0.03);
     } catch {}
   };
   return {
-    click: () => tone(720, 0, 0.06, "square", 0.035),
-    focus: () => tone(880, 0, 0.07, "sine", 0.02),
-    success: () => { tone(660, 0, 0.12, "sine", 0.045); tone(990, 0.09, 0.18, "sine", 0.045); },
-    error: () => { tone(180, 0, 0.09, "sine", 0.05); tone(150, 0.13, 0.12, "sine", 0.05); },
+    // A soft, rounded "tick" — short triangle wave with a gentle downward
+    // glide, filtered warm instead of a harsh square-wave beep.
+    click: () => tone(920, 0, 0.07, "triangle", 0.045, 640),
+    focus: () => tone(1100, 0, 0.05, "sine", 0.02),
+    // Two-note ascending chime (like a soft marimba), pleasant rather than sharp.
+    success: () => { tone(523.25, 0, 0.16, "sine", 0.05); tone(784, 0.1, 0.22, "sine", 0.045); },
+    // Gentle descending tone — a "no" that doesn't feel jarring.
+    error: () => { tone(392, 0, 0.13, "sine", 0.045, 300); tone(277, 0.11, 0.16, "sine", 0.04); },
   };
 }
 
-function PreviewModal({ onClose, labels }) {
+function PreviewModal({ onClose, labels, playClick }) {
+  const close = () => { if (playClick) playClick(); onClose(); };
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={close}>
       <div onClick={(e) => e.stopPropagation()} className="w-full max-w-sm overflow-hidden rounded-3xl border border-[#8b5cf6]/20 bg-[#120d21] shadow-[0_0_60px_-15px_rgba(139,92,246,0.35)]">
         <div className="flex items-center justify-between px-5 pt-4">
           <h3 className="font-display text-base font-semibold text-white">{labels.title}</h3>
-          <button type="button" onClick={onClose} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
+          <button type="button" onClick={close} className="shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] transition-colors hover:bg-[#33285c] hover:text-white">{labels.close}</button>
         </div>
         <div className="p-5">
           <div className="relative mx-auto aspect-[9/16] w-full max-w-[220px] overflow-hidden rounded-2xl" style={{ background: "linear-gradient(160deg, #3b2a5e 0%, #271f45 55%, #1a1530 100%)" }}>
@@ -560,10 +661,11 @@ function PreviewModal({ onClose, labels }) {
   );
 }
 
-function FAQSection({ faq, title, subtitle }) {
+function FAQSection({ faq, title, subtitle, playClick }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFaq = (index) => {
+    if (playClick) playClick();
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -822,30 +924,34 @@ function TikFetchApp() {
 
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
-      <div className="bg-noise">
-        <div className="px-4 pt-4"><AdSlot label={t.topBanner} size="320×50" wide /></div>
+      <div className="bg-noise arc-halo-wrap">
+        <div className="arc-halo" aria-hidden="true" />
+        <div className="arc-halo-inner" aria-hidden="true" />
+        <div className="safe-top px-4 pt-4"><AdSlot label={t.topBanner} size="320×50" wide /></div>
 
-        <header className="mx-auto flex max-w-md items-center justify-between px-4 pt-5 md:max-w-2xl md:px-8 lg:max-w-4xl">
+        <header className="relative z-10 mx-auto flex max-w-md items-center justify-between px-4 pt-5 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a855f7] shadow-[0_0_16px_-2px_rgba(168,85,247,0.8)]">
-              <TLogo size={16} color="#FFFFFF" />
+            <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_0_18px_-2px_rgba(168,85,247,0.9)]">
+              <img src="/logo.png" alt="TikFetch" className="h-full w-full object-cover" />
             </div>
             <span className="font-display text-[15px] font-semibold tracking-tight text-white">TikFetch</span>
           </div>
           <div className="flex items-center gap-2">
-            <button type="button" onClick={() => setSoundEnabled((s) => !s)} aria-label={soundEnabled ? t.muteLabel : t.unmuteLabel} title={soundEnabled ? t.muteLabel : t.unmuteLabel} className="flex h-8 w-8 items-center justify-center rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
+            <button type="button" onClick={() => { sound.click(); setSoundEnabled((s) => !s); }} aria-label={soundEnabled ? t.muteLabel : t.unmuteLabel} title={soundEnabled ? t.muteLabel : t.unmuteLabel} className="flex h-8 w-8 items-center justify-center rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
               {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
             </button>
-            <button type="button" onClick={() => setLangModalOpen(true)} className="flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 px-3 py-1.5 text-xs text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
+            <button type="button" onClick={() => { sound.click(); setLangModalOpen(true); }} className="flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 px-3 py-1.5 text-xs text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
               <Globe size={13} />{lang === "en" ? "EN" : "AR"}
             </button>
           </div>
         </header>
 
-        <main className="mx-auto max-w-md px-4 pb-10 pt-6 md:max-w-2xl md:px-8 lg:max-w-4xl">
+        <main className="relative z-10 mx-auto max-w-md px-4 pb-10 pt-6 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="mx-auto max-w-md md:max-w-xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#a855f7]">{t.eyebrow}</p>
-            <h1 className="font-display mt-3 whitespace-pre-line text-[34px] font-semibold leading-[1.08] tracking-tight text-white md:text-[44px]">{t.heroTitle}</h1>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/25 bg-[#1d1735]/60 px-3 py-1.5 text-[11px] font-medium tracking-wide text-[#c9bdf0] backdrop-blur-sm">
+              <Sparkles size={12} className="text-[#a855f7]" />{t.eyebrow}
+            </span>
+            <h1 className="font-display mt-4 whitespace-pre-line text-[34px] font-semibold leading-[1.08] tracking-tight text-white md:text-[44px]">{t.heroTitle}</h1>
             <p className="mt-3 text-[15px] leading-relaxed text-[#a197c4] md:text-base">{t.heroSub}</p>
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -854,10 +960,10 @@ function TikFetchApp() {
             </div>
 
             <div className="mt-5">
-              <div className="glow-focus flex items-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/70 p-2 backdrop-blur-xl transition-all">
+              <div className="glow-focus card-sheen flex items-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/70 p-2 backdrop-blur-xl transition-all">
                 <div className="flex flex-1 items-center gap-2 px-3">
                   <Link2 size={16} className="shrink-0 text-[#a197c4]" />
-                  <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleFetch()} onFocus={() => sound.focus()} placeholder={t.placeholder} dir="ltr" className="w-full bg-transparent py-2 text-sm text-white placeholder:text-[#a197c4]/50 outline-none" />
+                  <input type="text" value={url} onChange={(e) => setUrl(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleFetch()} onFocus={() => sound.focus()} placeholder={t.placeholder} dir="ltr" className="w-full bg-transparent py-2 text-base sm:text-sm text-white placeholder:text-[#a197c4]/50 outline-none" />
                 </div>
                 {url && (
                   <button type="button" aria-label={t.reset} onClick={handleReset} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#a197c4] transition-colors hover:bg-[#271f45] hover:text-white">
@@ -869,7 +975,7 @@ function TikFetchApp() {
                 </button>
               </div>
 
-              <button type="button" onClick={handleFetch} disabled={view === "loading"} className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] py-3.5 text-sm font-semibold text-white shadow-[0_0_28px_-6px_rgba(168,85,247,0.75)] transition-all hover:shadow-[0_0_36px_-4px_rgba(168,85,247,0.95)] active:scale-[0.99] disabled:opacity-70">
+              <button type="button" onClick={handleFetch} disabled={view === "loading"} className="btn-sheen mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] py-3.5 text-sm font-semibold text-white transition-all active:scale-[0.99] disabled:opacity-70">
                 {view === "loading" ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
                 {view === "loading" ? t.fetching : t.fetch}
               </button>
@@ -883,7 +989,7 @@ function TikFetchApp() {
                   <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#a197c4]/70">
                     <HistoryIcon size={12} />{t.historyTitle}
                   </div>
-                  <HistoryList items={history} onSelect={setUrl} onClear={clearHistory} labels={{ empty: t.historyEmpty, clear: t.historyClear }} />
+                  <HistoryList items={history} onSelect={setUrl} onClear={clearHistory} labels={{ empty: t.historyEmpty, clear: t.historyClear }} playClick={sound.click} />
                 </div>
               )}
             </div>
@@ -902,7 +1008,7 @@ function TikFetchApp() {
             {view === "loading" && <ResultSkeleton />}
 
             {view === "result" && (
-              <section className="mt-6 overflow-hidden rounded-3xl border border-[#8b5cf6]/15 bg-[#1d1735]/70 backdrop-blur-xl">
+              <section className="mt-6 overflow-hidden rounded-3xl border border-[#8b5cf6]/15 bg-[#1d1735]/70 backdrop-blur-xl card-sheen">
                 <div className="flex items-center justify-between px-4 pt-4">
                   <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#a855f7]">{t.resultEyebrow}</p>
                   <span className="rounded-full bg-[#271f45] px-2.5 py-1 text-[10px] font-medium text-[#c9bdf0]">{t.noWatermark}</span>
@@ -993,24 +1099,24 @@ function TikFetchApp() {
               </div>
             )}
 
-            <FAQSection faq={t.faq} title={t.faqTitle} subtitle={t.faqSubtitle} />
+            <FAQSection faq={t.faq} title={t.faqTitle} subtitle={t.faqSubtitle} playClick={sound.click} />
 
             <div className="mt-6"><AdSlot label={t.bottomBanner} size="300×250" /></div>
           </div>
         </main>
 
-        <footer className="border-t border-[#8b5cf6]/10 px-5 py-8 md:px-8">
+        <footer className="safe-bottom border-t border-[#8b5cf6]/10 px-5 py-8 md:px-8">
           <div className="mx-auto max-w-md md:max-w-2xl lg:max-w-4xl">
             <div className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a855f7]">
-                <TLogo size={14} color="#FFFFFF" />
+              <div className="flex h-7 w-7 items-center justify-center overflow-hidden rounded-full bg-white">
+                <img src="/logo.png" alt="TikFetch" className="h-full w-full object-cover" />
               </div>
               <span className="font-display text-sm font-semibold text-white">TikFetch</span>
             </div>
             <p className="mt-2 text-xs text-[#a197c4]/70">{t.footerTagline}</p>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[#a197c4]">
               {t.footerLinks.map((link, i) => (
-                <button key={link} type="button" onClick={() => setActiveModal(modalKeys[i])} className="transition-colors hover:text-white">{link}</button>
+                <button key={link} type="button" onClick={() => { sound.click(); setActiveModal(modalKeys[i]); }} className="transition-colors hover:text-white">{link}</button>
               ))}
             </div>
             <p className="mt-4 text-[11px] leading-relaxed text-[#a197c4]/50">{t.disclaimer}</p>
@@ -1018,9 +1124,9 @@ function TikFetchApp() {
         </footer>
       </div>
 
-      {langModalOpen && (<LanguageModal lang={lang} onSelect={(code) => { setLang(code); setLangModalOpen(false); }} onClose={() => setLangModalOpen(false)} labels={{ title: lang === "en" ? "Language" : "اللغة", close: t.close }} />)}
-      {activeModal && (<Modal title={t.modals[activeModal].title} body={t.modals[activeModal].body} closeLabel={t.close} onClose={() => setActiveModal(null)} />)}
-      {previewOpen && (<PreviewModal onClose={() => setPreviewOpen(false)} labels={{ title: t.previewTitle, hint: t.previewHint, close: t.close }} />)}
+      {langModalOpen && (<LanguageModal lang={lang} onSelect={(code) => { setLang(code); setLangModalOpen(false); }} onClose={() => setLangModalOpen(false)} labels={{ title: lang === "en" ? "Language" : "اللغة", close: t.close }} playClick={sound.click} />)}
+      {activeModal && (<Modal title={t.modals[activeModal].title} body={t.modals[activeModal].body} closeLabel={t.close} onClose={() => setActiveModal(null)} playClick={sound.click} />)}
+      {previewOpen && (<PreviewModal onClose={() => setPreviewOpen(false)} labels={{ title: t.previewTitle, hint: t.previewHint, close: t.close }} playClick={sound.click} />)}
       {toast && <Toast message={toast} />}
     </div>
   );
