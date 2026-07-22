@@ -568,8 +568,8 @@ function FAQSection({ faq, title, subtitle }) {
   };
 
   return (
-    <section className="mt-16 mb-8">
-      <div className="text-center mb-8">
+    <section className="mt-10 mb-6">
+      <div className="text-center mb-6">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/50 px-4 py-2 mb-4">
           <HelpCircle size={16} className="text-[#a855f7]" />
           <span className="text-xs font-medium text-[#c9bdf0]">FAQ</span>
@@ -823,9 +823,9 @@ function TikFetchApp() {
   return (
     <div dir={t.dir} className={`min-h-screen w-full text-white antialiased ${isRTL ? "font-[var(--font-ar)]" : "font-[var(--font-en)]"}`}>
       <div className="bg-noise">
-        <div className="px-5 pt-5"><AdSlot label={t.topBanner} size="320×50" wide /></div>
+        <div className="px-4 pt-4"><AdSlot label={t.topBanner} size="320×50" wide /></div>
 
-        <header className="mx-auto flex max-w-md items-center justify-between px-5 pt-6 md:max-w-2xl md:px-8 lg:max-w-4xl">
+        <header className="mx-auto flex max-w-md items-center justify-between px-4 pt-5 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#a855f7] shadow-[0_0_16px_-2px_rgba(168,85,247,0.8)]">
               <TLogo size={16} color="#FFFFFF" />
@@ -842,7 +842,7 @@ function TikFetchApp() {
           </div>
         </header>
 
-        <main className="mx-auto max-w-md px-5 pb-16 pt-10 md:max-w-2xl md:px-8 lg:max-w-4xl">
+        <main className="mx-auto max-w-md px-4 pb-10 pt-6 md:max-w-2xl md:px-8 lg:max-w-4xl">
           <div className="mx-auto max-w-md md:max-w-xl">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#a855f7]">{t.eyebrow}</p>
             <h1 className="font-display mt-3 whitespace-pre-line text-[34px] font-semibold leading-[1.08] tracking-tight text-white md:text-[44px]">{t.heroTitle}</h1>
@@ -853,7 +853,7 @@ function TikFetchApp() {
               <StatCounter label={t.statsCount} />
             </div>
 
-            <div className="mt-7">
+            <div className="mt-5">
               <div className="glow-focus flex items-center gap-2 rounded-full border border-[#8b5cf6]/15 bg-[#1d1735]/70 p-2 backdrop-blur-xl transition-all">
                 <div className="flex flex-1 items-center gap-2 px-3">
                   <Link2 size={16} className="shrink-0 text-[#a197c4]" />
@@ -888,9 +888,9 @@ function TikFetchApp() {
               )}
             </div>
 
-            <div className="mt-8"><AdSlot label={t.midContent} size="336×280" /></div>
+            <div className="mt-6"><AdSlot label={t.midContent} size="336×280" /></div>
 
-            <div className="mt-8"><FilmStrip animate={view === "loading"} /></div>
+            <div className="mt-6"><FilmStrip animate={view === "loading"} /></div>
 
             {view === "loading" && (
               <div className="mt-6 flex flex-col items-center justify-center gap-3 py-2">
@@ -995,7 +995,7 @@ function TikFetchApp() {
 
             <FAQSection faq={t.faq} title={t.faqTitle} subtitle={t.faqSubtitle} />
 
-            <div className="mt-8"><AdSlot label={t.bottomBanner} size="300×250" /></div>
+            <div className="mt-6"><AdSlot label={t.bottomBanner} size="300×250" /></div>
           </div>
         </main>
 
@@ -1028,5 +1028,9 @@ function TikFetchApp() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(<TikFetchApp />);
 </script>
+
+<!-- HilltopAds Popunder (Zone 7244897-7244901) -->
+<script src="https://motionless-bus.com/bT3.V-0/Pm3ApNvubymyVYJTZLD/0/3CMRj/Qy0kOlDckG3DLXTccqyjNLDdQ/5/MODrEW" async></script>
+
 </body>
 </html>
