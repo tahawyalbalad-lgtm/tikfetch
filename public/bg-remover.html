@@ -287,6 +287,8 @@ function BgRemoverApp() {
     showToast._t = window.setTimeout(() => setToast(null), 2600);
   };
 
+  const [errorDetail, setErrorDetail] = useState("");
+
   const processFile = useCallback(async (file) => {
     if (!file || !file.type.startsWith("image/")) {
       showToast("Please choose an image file (JPG, PNG, or WEBP).");
@@ -299,15 +301,25 @@ function BgRemoverApp() {
 
     setView("loading");
     setProgressLabel("Preparing your image…");
+    setErrorDetail("");
+
+    // The library's WASM/ONNX model files must be fetched from the exact
+    // same versioned dist folder as the JS module itself, or it throws
+    // "Resource ... not found". Pinning both to the same jsDelivr URL avoids
+    // that mismatch, and importing the package's own official ESM build
+    // (rather than a third-party re-bundle) avoids path-resolution issues.
+    const LIB_BASE = "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.8/dist/";
 
     try {
       const { blob: resizedBlob, previewUrl } = await loadAndResize(file);
       setBeforeUrl(previewUrl);
 
       setProgressLabel("Loading the AI model — first run only, please wait…");
-      const { default: removeBackground } = await import("https://esm.sh/@imgly/background-removal@1.7.0");
+      const mod = await import(/* webpackIgnore: true */ LIB_BASE + "index.mjs");
+      const removeBackground = mod.removeBackground || mod.default;
 
       const outBlob = await removeBackground(resizedBlob, {
+        publicPath: LIB_BASE,
         progress: (key, current, total) => {
           if (total) setProgressLabel(`Downloading AI model… ${Math.round((current / total) * 100)}%`);
         },
@@ -319,6 +331,7 @@ function BgRemoverApp() {
       setView("result");
     } catch (err) {
       console.error("Background removal failed:", err);
+      setErrorDetail(err && err.message ? err.message : String(err));
       setView("error");
     }
   }, []);
@@ -478,6 +491,7 @@ function BgRemoverApp() {
                 <div>
                   <p className="text-sm font-medium text-white">Couldn't process that image</p>
                   <p className="mt-1 text-xs leading-relaxed text-[#a197c4]">Try a different photo, or check your connection — the AI model needs to download once before the first use.</p>
+                  {errorDetail && <p className="mt-1 text-[10px] leading-relaxed text-[#a197c4]/50">Details: {errorDetail}</p>}
                 </div>
                 <button type="button" onClick={reset} className="ml-auto shrink-0 rounded-full bg-[#271f45] px-3 py-1 text-xs text-[#c9bdf0] hover:bg-[#33285c] hover:text-white">Try again</button>
               </div>
