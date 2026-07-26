@@ -21,8 +21,8 @@
 <meta property="og:url" content="https://tikfetch-sigma.vercel.app" />
 <meta property="og:site_name" content="TikFetch" />
 <meta property="og:image" content="https://tikfetch-sigma.vercel.app/logo.png" />
-<meta property="og:image:width" content="2000" />
-<meta property="og:image:height" content="2000" />
+<meta property="og:image:width" content="1270" />
+<meta property="og:image:height" content="1270" />
 <meta property="og:image:alt" content="TikFetch - TikTok Downloader" />
 <meta property="og:locale" content="en_US" />
 
@@ -937,6 +937,9 @@ function TikFetchApp() {
             <span className="font-display text-[15px] font-semibold tracking-tight text-white">TikFetch</span>
           </div>
           <div className="flex items-center gap-2">
+            <a href="/bg-remover.html" className="flex items-center gap-1.5 rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 px-3 py-1.5 text-xs text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
+              <ImageIcon size={13} /><span className="hidden sm:inline">BG Remover</span>
+            </a>
             <button type="button" onClick={() => { sound.click(); setSoundEnabled((s) => !s); }} aria-label={soundEnabled ? t.muteLabel : t.unmuteLabel} title={soundEnabled ? t.muteLabel : t.unmuteLabel} className="flex h-8 w-8 items-center justify-center rounded-full border border-[#8b5cf6]/20 bg-[#1d1735]/60 text-[#c9bdf0] transition-colors hover:border-[#8b5cf6]/40 hover:text-white">
               {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}
             </button>
